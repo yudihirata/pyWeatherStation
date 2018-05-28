@@ -48,4 +48,4 @@ class Icon(Resource):
           the upper left corner.  Default is the center of the image.
        :param translate: An optional post-rotate translation (a 2-tuple).
        """
-       self.mImage = self.mImage.rotate(angle, resample, expand, center, translate)
+       self.mImage = self.mImage.rotate(angle, resample, expand)

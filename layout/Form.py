@@ -2,6 +2,7 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 import json
+import tokens
 
 from layout.Resource import Resource
 
@@ -15,6 +16,7 @@ class Form(Resource):
         self.mDraw = None
         self.mLayout = None
         self.mChildren = dict()
+        tokens.init()  # Initialize tokens
 
     @property
     def layout(self):
@@ -71,6 +73,8 @@ class Form(Resource):
                                                            self.layout[name]["font"]["size"])
                     self.draw.text((resource.x, resource.y), resource.text, font=resource.font,
                                    fill=resource.Fill)
+                elif resource.getClassName() == "Line":
+                    self.draw.line(resource.xy, resource.fill, resource.width )
 
     def save(self, output):
         out = self.mask.rotate(0)

@@ -2,8 +2,8 @@ import json
 import urllib2
 # https://openweathermap.org/current
 import time
-
 import math
+import tokens
 
 # $pi.openweathermap.org/data/2.5/weather?q={city name}
 # api.openweathermap.org/data/2.5/weather?q={city name},{country code}
@@ -136,7 +136,6 @@ class WeatherCurrent:
     def data(self, value):
         self.mData = value
 
-    ##### COORD #####
     @property
     def longitude(self):
         """ City geo location, longitude """
@@ -146,8 +145,6 @@ class WeatherCurrent:
     def latitude(self):
         """ City geo location, latitude """
         return self.data["coord"]["lat"]
-
-    ##### WEATHER #####
 
     @property
     def weather(self):
@@ -160,15 +157,12 @@ class WeatherCurrent:
 
     @property
     def description(self):
-        return self.mConditionCodes[int(self.data["weather"][0]["id"])].title()
+        return tokens.values[str(self.data["weather"][0]["id"])].title()
 
-    ##### BASE #####
     @property
     def base(self):
         """ Internal parameter """
         return self.data["base"]
-
-    ##### MAIN #####
 
     @property
     def temperature(self):
@@ -219,7 +213,6 @@ class WeatherCurrent:
             return self.data["main"]["grnd_level"]
         return None
 
-    ##### WIND #####
     @property
     def wind_speed(self):
         """ Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour. """
@@ -248,13 +241,11 @@ class WeatherCurrent:
             return Direction[CompassDir]
         return "?"
 
-    ##### CLOUNDS #####
     @property
     def cloudiness(self):
         """ Cloudiness, % """
         return self.data["clouds"]["all"]
 
-    ##### RAIN #####
     @property
     def rain(self):
         """ Rain volume for the last 3 hours """
@@ -262,7 +253,6 @@ class WeatherCurrent:
             return self.data["rain"]["3h"]
         return None
 
-    ##### SNOW #####
     @property
     def snow(self):
         """ Snow volume for the last 3 hours """
@@ -270,7 +260,6 @@ class WeatherCurrent:
             return self.data["snow"]["3h"]
         return None
 
-    ##### DT #####
     @property
     def dt(self):
         """  Time of data calculation, unix, UTC """

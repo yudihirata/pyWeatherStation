@@ -1,6 +1,7 @@
 from layout.Form import Form
 from layout.Icon import Icon
 from layout.Label import Label
+from layout.Line import Line
 from weathercurrent import WeatherCurrent
 
 class Frame1(Form):
@@ -30,7 +31,8 @@ class Frame1(Form):
         self.add(Label("labelDegress", weather.wind_degrees_description))
         self.add(Label("labelSpeed", "{0}{1}".format(weather.wind_speed, weather.wind_speed_unit)))
         # separator line
-        self.draw.line((100, 0, 100, 110), fill=0, width=3)
+        self.add(Line("LineSeparator", (100, 0, 100, 110), fill=0, width=3))
+        #self.draw.line((100, 0, 100, 110), fill=0, width=3)
         #top line
         self.draw.line((0, 110, 640, 110), fill=0, width=3)
         # bottom line
