@@ -1,4 +1,5 @@
 {
+  "//":"/* https://openweathermap.org/weather-conditions*/",
   "strings":{
     "200": "thunderstorm with light rain",
     "201": "thunderstorm with rain",

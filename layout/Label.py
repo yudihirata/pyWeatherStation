@@ -12,7 +12,7 @@ class Label(Resource):
         self.mText = text
         self.mFill = fill
         if font is None:
-            self.mFont = ImageFont.truetype("res/FreeMonoBold.ttf", 12)
+            self.mFont = ImageFont.truetype("res/fonts/FreeMonoBold.ttf", 12)
         else:
             self.mFont = font
 
@@ -38,3 +38,11 @@ class Label(Resource):
     @font.setter
     def font(self, value):
         self.mFont = value
+
+    def createview(self, layout):
+        super(Label, self).createview(layout)
+        if layout["font"] is None:
+            self.font = ImageFont.truetype("res/fonts/FreeMonoBold.ttf", 12)
+        else:
+            self.font = ImageFont.truetype("res/fonts/{0}.ttf".format(layout["font"]["name"]), layout["font"]["size"])
+        self.parent.draw.text((self.x, self.y), self.text, font=self.font, fill=self.Fill)

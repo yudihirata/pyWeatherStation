@@ -49,32 +49,19 @@ class Form(Resource):
 
     def add(self, resource, x=None, y=None):
 
-        resource.Parent = self
+        resource.parent = self
         if x is not None:
             resource.x = x
         if y is not None:
             resource.y = y
         self.children.update({resource.name: resource})
 
-    def create(self):
+    def oncreateview(self):
         for name in self.children:
             if name in self.layout:
                 resource = self.children[name]
-                resource.x = self.layout[name]["x"]
-                resource.y = self.layout[name]["y"]
-                if resource.getClassName() == "Icon":
-                    resource.resize(self.layout[name]["width"], self.layout[name]["height"])
-                    self.mask.paste(resource.Image, (resource.x, resource.y), resource.Image)
-                elif resource.getClassName() == "Label":
-                    if self.layout[name]["font"] is None:
-                        resource.font = ImageFont.truetype("res/FreeMonoBold.ttf", 12)
-                    else:
-                        resource.font = ImageFont.truetype("res/{0}.ttf".format(self.layout[name]["font"]["name"]),
-                                                           self.layout[name]["font"]["size"])
-                    self.draw.text((resource.x, resource.y), resource.text, font=resource.font,
-                                   fill=resource.Fill)
-                elif resource.getClassName() == "Line":
-                    self.draw.line(resource.xy, resource.fill, resource.width )
+                resource.createview(self.layout[name])
+
 
     def save(self, output):
         out = self.mask.rotate(0)

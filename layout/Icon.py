@@ -49,3 +49,7 @@ class Icon(Resource):
        :param translate: An optional post-rotate translation (a 2-tuple).
        """
        self.mImage = self.mImage.rotate(angle, resample, expand)
+    def createview(self, layout):
+        super(Icon, self).createview(layout)
+        self.resize(layout["width"], layout["height"])
+        self.parent.mask.paste(self.Image, (self.x, self.y), self.Image)

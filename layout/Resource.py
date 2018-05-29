@@ -30,9 +30,13 @@ class Resource(object):
         return cls.__name__
 
     @property
-    def Parent(self):
+    def parent(self):
         return self.mParent
 
-    @Parent.setter
-    def Parent(self, value):
+    @parent.setter
+    def parent(self, value):
         self.mParent = value
+
+    def createview(self, layout):
+        self.x = layout["x"]
+        self.y = layout["y"]

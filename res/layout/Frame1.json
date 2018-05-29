@@ -133,7 +133,7 @@
       "y":135,
       "font":{
         "name":"FreeMonoBold",
-        "size":44
+        "size":34
       }
     },
     "labelSpeed":{
@@ -141,8 +141,32 @@
       "y":350,
       "font":{
         "name":"FreeMonoBold",
-        "size":32
+        "size":26
       }
+    },
+    "LineSeparator":{
+      "x":100,
+      "y":0,
+      "x1":100,
+      "y1":110,
+      "fill":0,
+      "width":3
+    },
+     "LineTop":{
+      "x":0,
+      "y":110,
+      "x1":640,
+      "y1":110,
+      "fill":0,
+      "width":3
+    },
+     "LineBottom":{
+      "x":180,
+      "y":165,
+      "x1":260,
+      "y1":165,
+      "fill":0,
+      "width":3
     }
   }
 }

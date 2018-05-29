@@ -5,12 +5,6 @@ import time
 import math
 import tokens
 
-# $pi.openweathermap.org/data/2.5/weather?q={city name}
-# api.openweathermap.org/data/2.5/weather?q={city name},{country code}
-SERVER = "http://api.openweathermap.org/data/2.5/weather?"
-API_KEY = "1497c0f0e51ef524d3be4fc373d72bd1"
-
-
 class WeatherCurrent:
     """
     coord
@@ -26,8 +20,12 @@ class WeatherCurrent:
         main.temp Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
         main.pressure Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa
         main.humidity Humidity, %
-        main.temp_min Minimum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
-        main.temp_max Maximum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
+        main.temp_min Minimum temperature at the moment. This is deviation from current temp that is possible for large
+        cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric:
+        Celsius, Imperial: Fahrenheit.
+        main.temp_max Maximum temperature at the moment. This is deviation from current temp that is possible for large
+        cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric:
+         Celsius, Imperial: Fahrenheit.
         main.sea_level Atmospheric pressure on the sea level, hPa
         main.grnd_level Atmospheric pressure on the ground level, hPa
     wind
@@ -52,69 +50,35 @@ class WeatherCurrent:
     cod Internal parameter
     """
     mData = {}
-    # https://openweathermap.org/weather-conditions
-    mConditionCodes = {200: "thunderstorm with light rain",
-                       201: "thunderstorm with rain",
-                       202: "thunderstorm with heavy rain",
-                       210: "light thunderstorm",
-                       211: "thunderstorm",
-                       212: "heavy thunderstorm",
-                       221: "ragged thunderstorm",
-                       230: "thunderstorm with light drizzle",
-                       231: "thunderstorm with drizzle",
-                       232: "thunderstorm with heavy drizzle",
-                       300: "light intensity drizzle",
-                       301: "drizzle",
-                       302: "heavy intensity drizzle",
-                       310: "light intensity drizzle rain",
-                       311: "drizzle rain",
-                       312: "heavy intensity drizzle rain",
-                       313: "shower rain and drizzle",
-                       314: "heavy shower rain and drizzle",
-                       321: "shower drizzle",
-                       500: "light rain",
-                       501: "moderate rain",
-                       502: "heavy intensity rain",
-                       503: "very heavy rain",
-                       504: "extreme rain",
-                       511: "freezing rain",
-                       520: "light intensity shower rain",
-                       521: "shower rain",
-                       522: "heavy intensity shower rain",
-                       531: "ragged shower rain",
-                       600: "light snow",
-                       601: "snow",
-                       602: "heavy snow",
-                       611: "sleet",
-                       612: "shower sleet",
-                       615: "light rain and snow",
-                       616: "rain and snow",
-                       620: "light shower snow",
-                       621: "shower snow",
-                       622: "heavy shower snow",
-                       701: "mist",
-                       711: "smoke",
-                       721: "haze",
-                       731: "sand, dust whirls",
-                       741: "fog",
-                       751: "sand",
-                       761: "dust",
-                       762: "volcanic ash",
-                       771: "squalls",
-                       781: "tornado",
-                       800: "clear sky",
-                       801: "few clouds",
-                       802: "scattered clouds",
-                       803: "broken clouds",
-                       804: "overcast clouds"
-                       }
 
-    def __init__(self, city, units="metric"):
-        url = "{0}q={1}&units={2}&appid={3}".format(SERVER, city, units, API_KEY)
+    # $pi.openweathermap.org/data/2.5/weather?q={city name}
+    # api.openweathermap.org/data/2.5/weather?q={city name},{country code}
+    def __init__(self, city):
+        self.mConfig = None
+        url = "{0}?q={1}&units={2}&appid={3}".format(self.server, city, self.unit, self.api_key)
         self.data = json.load(urllib2.urlopen(url))
 
     @property
-    def date_time(self):
+    def config(self):
+        if self.mConfig is None:
+            with open('config.json') as f:
+                self.mConfig = json.load(f)
+        return self.mConfig
+
+    @property
+    def api_key(self):
+        return self.config["api_key"]
+
+    @property
+    def server(self):
+        return self.config["server"]
+
+    @property
+    def unit(self):
+        return self.config["unit"]
+
+    @property
+    def datetime(self):
         """Current Date + time"""
         return unicode(time.strftime("%a %d %B") + "  " + time.strftime("%H:%M"), 'UTF-8').title()
 
@@ -157,7 +121,7 @@ class WeatherCurrent:
 
     @property
     def description(self):
-        return tokens.values[str(self.data["weather"][0]["id"])].title()
+        return unicode(tokens.values[str(self.data["weather"][0]["id"])].title())
 
     @property
     def base(self):
@@ -170,6 +134,12 @@ class WeatherCurrent:
         return int(self.data["main"]["temp"])
 
     @property
+    def temperatureunit(self):
+        """ Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit."""
+        degree_sign = u'\N{DEGREE SIGN}'
+        return degree_sign + 'C' if self.unit == "metric" else degree_sign + 'F'
+
+    @property
     def pressure(self):
         """  Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data),
         hPa """
@@ -177,7 +147,6 @@ class WeatherCurrent:
 
     @property
     def pressure_unit(self):
-        # TODO Dynamic unit
         return "hPa"
 
     @property
@@ -220,25 +189,24 @@ class WeatherCurrent:
 
     @property
     def wind_speed_unit(self):
-        # TODO
-        return "m/s"
+        return "m/s" if self.unit == "metric" else "mi/h"
 
     @property
-    def wind_degrees(self):
+    def winddegrees(self):
         """ Wind direction, degrees (meteorological). """
         if "deg" in self.data["wind"]:
             return int(self.data["wind"]["deg"])
         return 0
 
     @property
-    def wind_degrees_description(self):
+    def winddegreesdescription(self):
         """ Wind direction, degrees (meteorological). """
         if "deg" in self.data["wind"]:
-            Direction = ["N  ", "NNE", " NE ", "ENE", "E  ", "ESE", "SE ", "SSE", "S  ", "SSW", "SW ", "WSW",
+            direction = ["N  ", "NNE", " NE ", "ENE", "E  ", "ESE", "SE ", "SSE", "S  ", "SSW", "SW ", "WSW",
                          "W  ", "WNW", "NW ", "NNW", "N  "]
-            WindDir = self.data["wind"]["deg"]
-            CompassDir = int(round((math.fmod(WindDir, 360)) / 22.5, 0) + 1)
-            return Direction[CompassDir]
+            winddir = self.data["wind"]["deg"]
+            compassdir = int(round((math.fmod(winddir, 360)) / 22.5, 0) + 1)
+            return direction[compassdir]
         return "?"
 
     @property
@@ -265,7 +233,6 @@ class WeatherCurrent:
         """  Time of data calculation, unix, UTC """
         return self.data["dt"]
 
-    ##### SYS #####
     @property
     def country(self):
         """  Country code (GB, JP etc.) """
@@ -274,24 +241,22 @@ class WeatherCurrent:
     @property
     def sunrise(self):
         """  Sunrise time, unix, UTC """
-        sTime = time.gmtime(int(self.data["sys"]["sunrise"]))
-        return unicode(time.strftime("%H:%M", sTime), 'UTF-8')
+        stime = time.gmtime(int(self.data["sys"]["sunrise"]))
+        return unicode(time.strftime("%H:%M", stime), 'UTF-8')
 
     @property
     def sunset(self):
         """ Sunset time, unix, UTC """
-        sTime = time.gmtime(int(self.data["sys"]["sunset"]))
-        return unicode(time.strftime("%H:%M", sTime), 'UTF-8')
+        stime = time.gmtime(int(self.data["sys"]["sunset"]))
+        return unicode(time.strftime("%H:%M", stime), 'UTF-8')
 
-    ##### ID #####
     @property
-    def city_id(self):
+    def cityid(self):
         """  City ID """
         return self.data["id"]
 
-    ##### NAME #####
     @property
-    def city_name(self):
+    def cityname(self):
         """  City name """
         if "name" in self.data:
             return self.data["name"].title()

@@ -10,7 +10,7 @@ from weathercurrent import WeatherCurrent
 def main():
     current = WeatherCurrent("Barueri")
     frame1 = Frame1(current)
-    frame1.create()
+    frame1.oncreateview()
     frame1.save('frame1.bmp')
     image = Image.open('frame1.bmp')
  #   epd = epd7in5.EPD()
