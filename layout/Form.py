@@ -1,9 +1,13 @@
+import json
+
 from PIL import Image
 from PIL import ImageDraw
-from PIL import ImageFont
-import json
-import tokens
 
+import tokens
+import Label
+import Icon
+import Line
+import Ellipse
 from layout.Resource import Resource
 
 
@@ -17,6 +21,10 @@ class Form(Resource):
         self.mLayout = None
         self.mChildren = dict()
         tokens.init()  # Initialize tokens
+        # for resource in self.layout:
+        #     obj =  globals()[self.layout[resource]["class"]]
+        #     obj.name = resource
+        #     self.add(obj)
 
     @property
     def layout(self):

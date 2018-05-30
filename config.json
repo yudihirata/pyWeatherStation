@@ -1,6 +1,6 @@
 {
   "server":"http://api.openweathermap.org/data/2.5/weather",
-  "api_key":"your key",
+  "api_key":"1497c0f0e51ef524d3be4fc373d72bd1",
   "language":"default",
   "unit":"metric"
 }

@@ -1,6 +1,8 @@
-#coding: utf-8
+# coding: utf-8
 from layout.Resource import Resource
 from PIL import ImageFont
+
+
 class Label(Resource):
     def __init__(self, name, text=None, font=None, fill=0):
         """
@@ -23,12 +25,13 @@ class Label(Resource):
     @text.setter
     def text(self, value):
         self.mText = value
+
     @property
-    def Fill(self):
+    def fill(self):
         return self.mFill
 
-    @Fill.setter
-    def Fill(self, value):
+    @fill.setter
+    def fill(self, value):
         self.mFill = value
 
     @property
@@ -41,8 +44,15 @@ class Label(Resource):
 
     def createview(self, layout):
         super(Label, self).createview(layout)
-        if layout["font"] is None:
-            self.font = ImageFont.truetype("res/fonts/FreeMonoBold.ttf", 12)
-        else:
+        if "font" in layout:
             self.font = ImageFont.truetype("res/fonts/{0}.ttf".format(layout["font"]["name"]), layout["font"]["size"])
-        self.parent.draw.text((self.x, self.y), self.text, font=self.font, fill=self.Fill)
+        else:
+            self.font = ImageFont.truetype("res/fonts/FreeMonoBold.ttf", 12)
+
+        if "fill" in layout:
+            self.fill = layout["fill"]
+
+        if "text" in layout:
+            self.text = layout["text"]
+
+        self.parent.draw.text((self.x, self.y), self.text, font=self.font, fill=self.fill)

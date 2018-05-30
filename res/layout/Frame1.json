@@ -1,12 +1,14 @@
 {
   "Frame1": {
     "iconCondition":{
+      "class":"Icon",
       "x":0,
       "y":0,
-      "height":100,
-      "width":100
+      "height":110,
+      "width":110
     },
     "labelDate":{
+      "class":"Label",
       "x":115,
       "y":5,
       "font":{
@@ -15,6 +17,7 @@
       }
     },
     "labelDescription":{
+      "class":"Label",
       "x":115,
       "y":40,
       "font":{
@@ -23,6 +26,7 @@
       }
     },
     "labelCity":{
+      "class":"Label",
       "x":115,
       "y":75,
       "font":{
@@ -31,12 +35,15 @@
       }
     },
     "iconSunrise":{
+      "class":"Icon",
       "x":395,
       "y":35,
       "height":70,
-      "width":70
+      "width":70,
+      "image":"images/Sunrise.png"
     },
     "labelSunrise":{
+      "class":"Label",
       "x":455,
       "y":35,
       "font":{
@@ -45,12 +52,15 @@
       }
     },
     "iconSunset":{
+      "class":"Icon",
       "x":520,
       "y":35,
       "height":70,
-      "width":70
+      "width":70,
+      "image":"images/Sunset.png"
     },
     "labelSunset":{
+      "class":"Label",
       "x":575,
       "y":35,
       "font":{
@@ -59,6 +69,7 @@
       }
     },
     "labelTemperature":{
+      "class":"Label",
       "x":15,
       "y":125,
       "font":{
@@ -67,6 +78,7 @@
       }
     },
     "labelMinTemperature":{
+      "class":"Label",
       "x":185,
       "y":135,
       "font":{
@@ -75,6 +87,7 @@
       }
     },
     "labelMaxTemperature":{
+      "class":"Label",
       "x":185,
       "y":165,
       "font":{
@@ -83,6 +96,7 @@
       }
     },
     "labelTime":{
+      "class":"Label",
       "x":15,
       "y":210,
       "font":{
@@ -91,6 +105,7 @@
       }
     },
     "labelHumidity":{
+      "class":"Label",
       "x":190,
       "y":310,
       "font":{
@@ -99,6 +114,7 @@
       }
     },
     "labelHumidityValue":{
+      "class":"Label",
       "x":190,
       "y":330,
       "font":{
@@ -107,6 +123,7 @@
       }
     },
     "labelPressure":{
+      "class":"Label",
       "x":15,
       "y":310,
       "font":{
@@ -115,6 +132,7 @@
       }
     },
     "labelPressureValue":{
+      "class":"Label",
       "x":5,
       "y":330,
       "font":{
@@ -123,12 +141,15 @@
       }
     },
     "iconDirection":{
+      "class":"Icon",
       "x":320,
       "y":110,
       "height":250,
-      "width":250
+      "width":250,
+      "image":"res/Direction-West-icon.png"
     },
     "labelDegress":{
+      "class":"Label",
       "x":550,
       "y":135,
       "font":{
@@ -137,6 +158,7 @@
       }
     },
     "labelSpeed":{
+      "class":"Label",
       "x":500,
       "y":350,
       "font":{
@@ -145,6 +167,7 @@
       }
     },
     "LineSeparator":{
+      "class":"Label",
       "x":100,
       "y":0,
       "x1":100,
@@ -153,20 +176,22 @@
       "width":3
     },
      "LineTop":{
-      "x":0,
-      "y":110,
-      "x1":640,
-      "y1":110,
-      "fill":0,
-      "width":3
+       "class":"Line",
+       "x":0,
+       "y":110,
+       "x1":640,
+       "y1":110,
+       "fill":0,
+       "width":3
     },
      "LineBottom":{
-      "x":180,
-      "y":165,
-      "x1":260,
-      "y1":165,
-      "fill":0,
-      "width":3
+       "class":"Line",
+       "x":180,
+       "y":165,
+       "x1":260,
+       "y1":165,
+       "fill":0,
+       "width":3
     }
   }
 }

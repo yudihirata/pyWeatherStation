@@ -12,9 +12,17 @@ class Line(Resource):
     def xy(self):
         return self.mXY
 
+    @xy.setter
+    def xy(self, value):
+        self.mXY = value
+
     @property
     def fill(self):
         return self.mFill
+
+    @fill.setter
+    def fill(self, value):
+        self.mFill = value
 
     @property
     def width(self):
@@ -26,4 +34,13 @@ class Line(Resource):
 
     def createview(self, layout):
         super(Line, self).createview(layout)
-        self.parent.draw.line((layout["x"], layout["y"], layout["x1"], layout["y1"] ), layout["fill"], layout["width"])
+        if {"x", "y", "x1", "y1"}.issubset(set(layout)):
+            self.xy = (layout["x"], layout["y"], layout["x1"], layout["y1"])
+
+        if "fill" in layout:
+            self.fill = layout["fill"]
+
+        if "width" in layout:
+            self.width = layout["width"]
+
+        self.parent.draw.line(self.xy, self.fill, self.width)

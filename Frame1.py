@@ -7,18 +7,17 @@ class Frame1(Form):
 
     def __init__(self, weather):
         Form.__init__(self, "Frame1", 640, 384)
-        degree_sign = u'\N{DEGREE SIGN}'
-        icon_direction = Icon("iconDirection", 'res/Direction-West-icon.png')
-        icon_direction.rotate(weather.winddegrees)
-        self.add(Icon("iconCondition", "res/01d.png"))
+        icon_direction = Icon("iconDirection")
+        icon_direction.angle = weather.winddegrees
+        self.add(Icon("iconCondition", weather.icon))
         self.add(icon_direction)
         self.add(Label("labelDate", weather.date))
         self.add(Label("labelDescription", weather.description))
         self.add(Label("labelSunrise", weather.sunrise))
         self.add(Label("labelSunset", weather.sunset))
         self.add(Label("labelCity", weather.cityname))
-        self.add(Icon("iconSunrise", 'images/Sunrise.png'))
-        self.add(Icon("iconSunset", 'images/Sunset.png'))
+        self.add(Icon("iconSunrise"))
+        self.add(Icon("iconSunset"))
         self.add(Label("labelTemperature", str(weather.temperature) + weather.temperatureunit))
         self.add(Label("labelMinTemperature", str(weather.min_temperature) + weather.temperatureunit))
         self.add(Label("labelMaxTemperature", str(weather.max_temperature) + weather.temperatureunit))

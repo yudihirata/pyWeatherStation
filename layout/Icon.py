@@ -1,32 +1,58 @@
 import PIL
 from PIL import Image
 from layout.Resource import Resource
+
+
 class Icon(Resource):
-    def __init__(self, name, filePath, width=None, height= None):
+    def __init__(self, name, filepath=None, width=None, height=None):
         Resource.__init__(self, name)
-        self.mFile = filePath
-        self.mImage = Image.open(filePath)
-        #self.resize(width, height)
+        self.mFile = filepath
+        self.mImage = None
+        self.resize(width, height)
+        self.mAngle = None
+
+    @property
+    def file(self):
+        return self.mFile
+
+    @file.setter
+    def file(self, value):
+        self.mFile = value
+
+    @property
+    def angle(self):
+        return self.mAngle
+
+    @angle.setter
+    def angle(self, value):
+        self.mAngle = value
 
     @property
     def Height(self):
-        return self.Image.height
+        return self.image.height
 
     @property
     def Width(self):
-        return self.Image.width
+        return self.image.width
 
     @property
-    def Image(self):
+    def image(self):
+        if self.file is not None and self.mImage is None:
+            self.mImage = Image.open(self.file)
         return self.mImage
+
+    @image.setter
+    def image(self, value):
+        self.mImage = value
 
     def resize(self, width, height):
         if width is not None and height is not None:
-            self.mImage = self.mImage.resize((width, height))
+            newimage = self.image.resize((width, height))
+            self.image = newimage
 
     def rotate(self, angle, resample=PIL.Image.NEAREST, expand=0, center=None,
                translate=None):
-       """
+        """
        Returns a rotated copy of this image.  This method returns a
        copy of this image, rotated the given number of degrees counter
        clockwise around its centre.
@@ -48,8 +74,21 @@ class Icon(Resource):
           the upper left corner.  Default is the center of the image.
        :param translate: An optional post-rotate translation (a 2-tuple).
        """
-       self.mImage = self.mImage.rotate(angle, resample, expand)
+        self.mImage = self.mImage.rotate(angle, resample, expand)
+
     def createview(self, layout):
         super(Icon, self).createview(layout)
-        self.resize(layout["width"], layout["height"])
-        self.parent.mask.paste(self.Image, (self.x, self.y), self.Image)
+
+        if "image" in layout:
+            self.file = layout["image"]
+
+        if self.angle is None and "angle" in layout:
+            self.angle = layout["angle"]
+
+        if {"width", "height"}.issubset(set(layout)):
+            self.resize(layout["width"], layout["height"])
+
+        if self.angle is not None:
+            self.image = self.image.rotate(self.angle)
+
+        self.parent.mask.paste(self.image, (self.x, self.y), self.image)
