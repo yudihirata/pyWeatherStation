@@ -32,8 +32,8 @@ class Line(Resource):
     def width(self, value):
         self.mWidth = value
 
-    def createview(self, layout):
-        super(Line, self).createview(layout)
+    def loadlayout(self, layout):
+        super(Line, self).loadlayout(layout)
         if {"x", "y", "x1", "y1"}.issubset(set(layout)):
             self.xy = (layout["x"], layout["y"], layout["x1"], layout["y1"])
 
@@ -43,4 +43,5 @@ class Line(Resource):
         if "width" in layout:
             self.width = layout["width"]
 
+    def createview(self):
         self.parent.draw.line(self.xy, self.fill, self.width)

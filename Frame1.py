@@ -7,30 +7,20 @@ class Frame1(Form):
 
     def __init__(self, weather):
         Form.__init__(self, "Frame1", 640, 384)
-        icon_direction = Icon("iconDirection")
+        icon_direction = self.children["iconDirection"]
         icon_direction.angle = weather.winddegrees
-        self.add(Icon("iconCondition", weather.icon))
-        self.add(icon_direction)
-        self.add(Label("labelDate", weather.date))
-        self.add(Label("labelDescription", weather.description))
-        self.add(Label("labelSunrise", weather.sunrise))
-        self.add(Label("labelSunset", weather.sunset))
-        self.add(Label("labelCity", weather.cityname))
-        self.add(Icon("iconSunrise"))
-        self.add(Icon("iconSunset"))
-        self.add(Label("labelTemperature", str(weather.temperature) + weather.temperatureunit))
-        self.add(Label("labelMinTemperature", str(weather.min_temperature) + weather.temperatureunit))
-        self.add(Label("labelMaxTemperature", str(weather.max_temperature) + weather.temperatureunit))
-        self.add(Label("labelTime", weather.time))
-        self.add(Label("labelHumidity", "Humidity"))
-        self.add(Label("labelHumidityValue", str(weather.humidity) + '%'))
-        self.add(Label("labelPressure", "Pressure"))
-        self.add(Label("labelPressureValue", "{0}{1}".format(weather.pressure, weather.pressure_unit)))
-        self.add(Label("labelDegress", weather.winddegreesdescription))
-        self.add(Label("labelSpeed", "{0}{1}".format(weather.wind_speed, weather.wind_speed_unit)))
-        # separator line
-        self.add(Line("LineSeparator"))
-        # top line
-        self.add(Line("LineTop"))
-        # bottom line
-        self.add(Line("LineBottom"))
+        self.children["iconCondition"].file = weather.icon
+        self.children["labelDate"].text = weather.date
+        self.children["labelDescription"].text = weather.description
+        self.children["labelSunrise"].text = weather.sunrise
+        self.children["labelSunset"].text = weather.sunset
+        self.children["labelCity"].text = weather.cityname
+        self.children["labelTemperature"].text = str(weather.temperature) + weather.temperatureunit
+        self.children["labelMinTemperature"].text = str(weather.min_temperature) + weather.temperatureunit
+        self.children["labelMaxTemperature"].text = str(weather.max_temperature) + weather.temperatureunit
+        self.children["labelHumidityValue"].text = str(weather.humidity) + '%'
+        self.children["labelPressureValue"].text = "{0}{1}".format(weather.pressure, weather.pressure_unit)
+        self.children["labelDirection"].text = weather.winddegreesdescription
+        self.children["labelDegress"].text = str(weather.winddegrees) + u"\N{DEGREE SIGN}"
+        self.children["labelSpeed"].text = "{0}{1}".format(weather.wind_speed, weather.wind_speed_unit)
+        self.createview()

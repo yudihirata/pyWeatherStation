@@ -42,17 +42,19 @@ class Label(Resource):
     def font(self, value):
         self.mFont = value
 
-    def createview(self, layout):
-        super(Label, self).createview(layout)
+    def loadlayout(self, layout):
+        super(Label, self).loadlayout(layout)
+
+        if "text" in layout:
+            self.text = layout["text"]
+
+        if "fill" in layout:
+            self.fill = layout["fill"]
+
         if "font" in layout:
             self.font = ImageFont.truetype("res/fonts/{0}.ttf".format(layout["font"]["name"]), layout["font"]["size"])
         else:
             self.font = ImageFont.truetype("res/fonts/FreeMonoBold.ttf", 12)
 
-        if "fill" in layout:
-            self.fill = layout["fill"]
-
-        if "text" in layout:
-            self.text = layout["text"]
-
+    def createview(self):
         self.parent.draw.text((self.x, self.y), self.text, font=self.font, fill=self.fill)

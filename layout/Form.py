@@ -1,14 +1,13 @@
 import json
+from collections import OrderedDict
 
 from PIL import Image
 from PIL import ImageDraw
 
 import tokens
-import Label
-import Icon
-import Line
-import Ellipse
 from layout.Resource import Resource
+
+from pydoc import locate
 
 
 class Form(Resource):
@@ -19,12 +18,9 @@ class Form(Resource):
         self.mMask = Image.new('1', (height, width), 255)
         self.mDraw = None
         self.mLayout = None
-        self.mChildren = dict()
+        self.mChildren = OrderedDict()
         tokens.init()  # Initialize tokens
-        # for resource in self.layout:
-        #     obj =  globals()[self.layout[resource]["class"]]
-        #     obj.name = resource
-        #     self.add(obj)
+        self.loadlayout(self.layout)
 
     @property
     def layout(self):
@@ -64,12 +60,20 @@ class Form(Resource):
             resource.y = y
         self.children.update({resource.name: resource})
 
-    def oncreateview(self):
+    def loadlayout(self, layout):
+        # locate classes from layout and create their instances dynamically
+        for resource in layout:
+            classname = layout[resource]["class"]
+            obj = locate(classname)(resource)
+            if "loadlayout" in dir(obj):
+                obj.loadlayout(layout[resource])
+                self.add(obj)
+
+    def createview(self):
         for name in self.children:
             if name in self.layout:
                 resource = self.children[name]
-                resource.createview(self.layout[name])
-
+                resource.createview()
 
     def save(self, output):
         out = self.mask.rotate(0)

@@ -10,6 +10,27 @@ class Icon(Resource):
         self.mImage = None
         self.resize(width, height)
         self.mAngle = None
+        self.mHeight = None
+        self.mWidth = None
+
+
+    def loadlayout(self, layout):
+        if "text" in layout:
+            self.text = layout["text"]
+        if "x" in layout:
+            self.x = layout["x"]
+        if "y" in layout:
+            self.y = layout["y"]
+
+        if "image" in layout:
+            self.file = layout["image"]
+
+        if {"width", "height"}.issubset(set(layout)) :
+            self.width = layout["width"]
+            self.height = layout["height"]
+
+        if "angle" in layout:
+            self.angle = int(layout["angle"])
 
     @property
     def file(self):
@@ -28,17 +49,27 @@ class Icon(Resource):
         self.mAngle = value
 
     @property
-    def Height(self):
-        return self.image.height
+    def height(self):
+        return self.mHeight
+
+    @height.setter
+    def height(self, value):
+        self.mHeight = value
 
     @property
-    def Width(self):
-        return self.image.width
+    def width(self):
+        return self.mWidth
+
+    @width.setter
+    def width(self, value):
+        self.mWidth = value
 
     @property
     def image(self):
         if self.file is not None and self.mImage is None:
             self.mImage = Image.open(self.file)
+        self.width = self.mImage.width
+        self.height = self.mImage.height
         return self.mImage
 
     @image.setter
@@ -49,6 +80,8 @@ class Icon(Resource):
         if width is not None and height is not None:
             newimage = self.image.resize((width, height))
             self.image = newimage
+            self.width = self.image.width
+            self.height = self.image.height
 
     def rotate(self, angle, resample=PIL.Image.NEAREST, expand=0, center=None,
                translate=None):
@@ -74,21 +107,24 @@ class Icon(Resource):
           the upper left corner.  Default is the center of the image.
        :param translate: An optional post-rotate translation (a 2-tuple).
        """
-        self.mImage = self.mImage.rotate(angle, resample, expand)
+        if angle is not None:
+            self.mImage = self.mImage.rotate(angle*-1, resample, expand)
 
-    def createview(self, layout):
-        super(Icon, self).createview(layout)
-
+    def loadlayout(self, layout):
+        super(Icon, self).loadlayout(layout)
         if "image" in layout:
             self.file = layout["image"]
+        if "width" in layout:
+            self.width = layout["width"]
 
-        if self.angle is None and "angle" in layout:
+        if "height" in layout:
+            self.height = layout["height"]
+
+        if "angle" in layout:
             self.angle = layout["angle"]
-
-        if {"width", "height"}.issubset(set(layout)):
-            self.resize(layout["width"], layout["height"])
-
-        if self.angle is not None:
             self.image = self.image.rotate(self.angle)
 
+    def createview(self):
+        self.resize(self.width, self.height)
+        self.rotate(self.angle)
         self.parent.mask.paste(self.image, (self.x, self.y), self.image)

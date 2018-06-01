@@ -1,4 +1,7 @@
+from abc import ABCMeta, abstractmethod
 class Resource(object):
+    __metaclass__ = ABCMeta
+
     def __init__(self, name):
         self.mName = name
         self.mParent = None
@@ -8,6 +11,10 @@ class Resource(object):
     @property
     def name(self):
         return self.mName
+
+    @name.setter
+    def name(self, value):
+        self.mName = value
 
     @property
     def x(self):
@@ -37,6 +44,10 @@ class Resource(object):
     def parent(self, value):
         self.mParent = value
 
+    @abstractmethod
     def createview(self, layout):
+        pass
+
+    def loadlayout(self, layout):
         self.x = layout["x"]
         self.y = layout["y"]

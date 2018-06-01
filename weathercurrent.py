@@ -50,7 +50,7 @@ class WeatherCurrent:
     cod Internal parameter
     """
     mData = {}
-
+    # http://erikflowers.github.io/weather-icons/
     # $pi.openweathermap.org/data/2.5/weather?q={city name}
     # api.openweathermap.org/data/2.5/weather?q={city name},{country code}
     def __init__(self, city):
@@ -83,9 +83,9 @@ class WeatherCurrent:
         return unicode(time.strftime("%a %d %B") + "  " + time.strftime("%H:%M"), 'UTF-8').title()
 
     @property
-    def date(self):
+    def date(self, format="%A %d %B"):
         """Current Date"""
-        return unicode(time.strftime("%a %d %B"), 'UTF-8').title()
+        return unicode(time.strftime(format), 'UTF-8').title()
 
     @property
     def time(self):
@@ -202,12 +202,14 @@ class WeatherCurrent:
     def winddegreesdescription(self):
         """ Wind direction, degrees (meteorological). """
         if "deg" in self.data["wind"]:
-            direction = ["N  ", "NNE", " NE ", "ENE", "E  ", "ESE", "SE ", "SSE", "S  ", "SSW", "SW ", "WSW",
-                         "W  ", "WNW", "NW ", "NNW", "N  "]
+            direction = [" N ", "NNE", "NE ", "ENE", " E ", "ESE", "SE ", "SSE", " S ", "SSW", "SW ", "WSW",
+                         " W ", "WNW", "NW ", "NNW", " N "]
             winddir = self.data["wind"]["deg"]
             compassdir = int(round((math.fmod(winddir, 360)) / 22.5, 0) + 1)
-            return direction[compassdir]
-        return "?"
+            # return direction[compassdir]
+            if compassdir >= len(direction):
+                compassdir = 16
+        return direction[compassdir]
 
     @property
     def cloudiness(self):
@@ -239,16 +241,16 @@ class WeatherCurrent:
         return self.data["sys"]["country"]
 
     @property
-    def sunrise(self):
+    def sunrise(self, format="%H:%M"):
         """  Sunrise time, unix, UTC """
         stime = time.gmtime(int(self.data["sys"]["sunrise"]))
-        return unicode(time.strftime("%H:%M", stime), 'UTF-8')
+        return unicode(time.strftime(format, stime), 'UTF-8')
 
     @property
-    def sunset(self):
+    def sunset(self, format="%H:%M"):
         """ Sunset time, unix, UTC """
         stime = time.gmtime(int(self.data["sys"]["sunset"]))
-        return unicode(time.strftime("%H:%M", stime), 'UTF-8')
+        return unicode(time.strftime(format, stime), 'UTF-8')
 
     @property
     def cityid(self):
