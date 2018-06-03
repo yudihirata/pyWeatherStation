@@ -1,11 +1,10 @@
 import json
-import urllib2
 # https://openweathermap.org/current
 import time
 import math
 import tokens
 
-class WeatherCurrent:
+class Weather:
     """
     coord
         coord.lon City geo location, longitude
@@ -53,10 +52,9 @@ class WeatherCurrent:
     # http://erikflowers.github.io/weather-icons/
     # $pi.openweathermap.org/data/2.5/weather?q={city name}
     # api.openweathermap.org/data/2.5/weather?q={city name},{country code}
-    def __init__(self, city):
+    def __init__(self, data):
         self.mConfig = None
-        url = "{0}?q={1}&units={2}&appid={3}".format(self.server, city, self.unit, self.api_key)
-        self.data = json.load(urllib2.urlopen(url))
+        self.data = data
 
     @property
     def config(self):
@@ -64,14 +62,6 @@ class WeatherCurrent:
             with open('config.json') as f:
                 self.mConfig = json.load(f)
         return self.mConfig
-
-    @property
-    def api_key(self):
-        return self.config["api_key"]
-
-    @property
-    def server(self):
-        return self.config["server"]
 
     @property
     def unit(self):
@@ -146,7 +136,7 @@ class WeatherCurrent:
         return self.data["main"]["pressure"]
 
     @property
-    def pressure_unit(self):
+    def pressureunit(self):
         return "hPa"
 
     @property
@@ -183,12 +173,12 @@ class WeatherCurrent:
         return None
 
     @property
-    def wind_speed(self):
+    def windspeed(self):
         """ Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour. """
         return self.data["wind"]["speed"]
 
     @property
-    def wind_speed_unit(self):
+    def windspeedunit(self):
         return "m/s" if self.unit == "metric" else "mi/h"
 
     @property

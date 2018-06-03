@@ -68,8 +68,8 @@ class Icon(Resource):
     def image(self):
         if self.file is not None and self.mImage is None:
             self.mImage = Image.open(self.file)
-        self.width = self.mImage.width
-        self.height = self.mImage.height
+            self.width = self.mImage.width
+            self.height = self.mImage.height
         return self.mImage
 
     @image.setter

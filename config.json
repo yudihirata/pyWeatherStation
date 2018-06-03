@@ -1,5 +1,7 @@
 {
-  "server":"http://api.openweathermap.org/data/2.5/weather",
+  "city":"barueri",
+  "current":"http://api.openweathermap.org/data/2.5/weather",
+  "forecastfive":"http://api.openweathermap.org/data/2.5/forecast",
   "api_key":"1497c0f0e51ef524d3be4fc373d72bd1",
   "language":"default",
   "unit":"metric"
