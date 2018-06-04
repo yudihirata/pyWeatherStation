@@ -2,7 +2,7 @@ import json
 # https://openweathermap.org/current
 import time
 import math
-import tokens
+import R
 
 class Weather:
     """
@@ -106,12 +106,13 @@ class Weather:
 
     @property
     def icon(self):
-        return "res/{0}.png".format(self.data["weather"][0]["icon"])
+        return "res/drawable/{0}.png".format(self.data["weather"][0]["icon"])
         # return "http://openweathermap.org/img/w/{0}.png".format(self.Data["weather"][0]["icon"])
 
     @property
     def description(self):
-        return unicode(tokens.values[str(self.data["weather"][0]["id"])].title())
+        #return unicode(R.values[str(self.data["weather"][0]["id"])].title())
+        return unicode(R.strings.code[str(self.data["weather"][0]["id"])].title())
 
     @property
     def base(self):

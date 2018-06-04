@@ -68,8 +68,7 @@ class Icon(Resource):
     def image(self):
         if self.file is not None and self.mImage is None:
             self.mImage = Image.open(self.file)
-            self.width = self.mImage.width
-            self.height = self.mImage.height
+            self.width, self.height = self.image.size
         return self.mImage
 
     @image.setter
@@ -80,8 +79,7 @@ class Icon(Resource):
         if width is not None and height is not None:
             newimage = self.image.resize((width, height))
             self.image = newimage
-            self.width = self.image.width
-            self.height = self.image.height
+            self.width, self.height = self.image.size
 
     def rotate(self, angle, resample=PIL.Image.NEAREST, expand=0, center=None,
                translate=None):

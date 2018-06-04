@@ -4,14 +4,14 @@ from collections import OrderedDict
 from PIL import Image
 from PIL import ImageDraw
 
-import tokens
+import R
 from layout.Resource import Resource
 
 from pydoc import locate
 
 
 class Form(Resource):
-    def __init__(self, name, height, width):
+    def __init__(self, name, height=640, width=384):
         Resource.__init__(self, name)
         # https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes
         # L (8-bit pixels, black and white)
@@ -19,7 +19,7 @@ class Form(Resource):
         self.mDraw = None
         self.mLayout = None
         self.mChildren = OrderedDict()
-        tokens.init()  # Initialize tokens
+        R.init()  # Initialize tokens
         self.loadlayout(self.layout)
 
     @property

@@ -25,14 +25,14 @@
       "y":40,
       "height":100,
       "width":100,
-      "image":"res/01n.png"
+      "image":"res/drawable/01n.png"
     },
     "iconChart":{
       "class":"layout.Icon",
       "x":5,
       "y":120,
       "height":120,
-      "width":600,
+      "width":620,
       "image":"test.png"
     },
     "labelTemperature":{
@@ -91,7 +91,7 @@
       "y":270,
       "height":100,
       "width":100,
-      "image":"res/02d.png"
+      "image":"res/drawable/02d.png"
     },
     "label1minmax":{
       "class":"layout.Label",
@@ -119,7 +119,7 @@
       "y":270,
       "height":100,
       "width":100,
-      "image":"res/02d.png"
+      "image":"res/drawable/02d.png"
     },
     "label2minmax":{
       "class":"layout.Label",
@@ -147,7 +147,7 @@
       "y":270,
       "height":100,
       "width":100,
-      "image":"res/02d.png"
+      "image":"res/drawable/02d.png"
     },
     "label3minmax":{
       "class":"layout.Label",
@@ -175,7 +175,7 @@
       "y":270,
       "height":100,
       "width":100,
-      "image":"res/02d.png"
+      "image":"res/drawable/02d.png"
     },
      "label4minmax":{
       "class":"layout.Label",
@@ -203,7 +203,7 @@
       "y":270,
       "height":100,
       "width":100,
-      "image":"res/02d.png"
+      "image":"res/drawable/02d.png"
     },
     "label5minmax":{
       "class":"layout.Label",

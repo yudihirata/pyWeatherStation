@@ -1,4 +1,5 @@
 #https://openweathermap.org/forecast5
+import matplotlib.pyplot as plt
 
 class ForecastFive(object):
 
@@ -32,3 +33,18 @@ class ForecastFive(object):
         """
         return self.data["cnt"]
 
+    def createchart(self, filename):
+        x2 = []
+        tmax = []
+        tmin = []
+        count =1
+        for value in self.list:
+            tmax.append(value["main"]["temp_max"])
+            tmin.append(value["main"]["temp_min"])
+            x2.append(count)
+            count = count + 1
+        plt.bar(x2, tmax, color="black")
+        plt.bar(x2, tmin, color="gray")
+
+        plt.axis("off")
+        plt.savefig(filename, bbox_inches='tight', orientation="landscape", transparent=True, frameon=True, dpi=300)

@@ -1,7 +1,7 @@
 # coding: utf-8
 from layout.Resource import Resource
 from PIL import ImageFont
-
+import R
 
 class Label(Resource):
     def __init__(self, name, text=None, font=None, fill=0):
@@ -46,8 +46,10 @@ class Label(Resource):
         super(Label, self).loadlayout(layout)
 
         if "text" in layout:
-            self.text = layout["text"]
-
+            if layout["text"] in R.strings.values:
+                self.text = R.strings.values[layout["text"]]
+            else:
+                self.text = layout["text"]
         if "fill" in layout:
             self.fill = layout["fill"]
 

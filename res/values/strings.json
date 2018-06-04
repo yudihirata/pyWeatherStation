@@ -55,5 +55,10 @@
     "802": "scattered clouds",
     "803": "broken clouds",
     "804": "overcast clouds"
+  },
+  "tokens":{
+    "Humidity":"Humidity",
+    "Pressure":"Pressure",
+    "Wind":"Wind"
   }
 }

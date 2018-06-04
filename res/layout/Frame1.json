@@ -40,7 +40,7 @@
       "y":25,
       "height":100,
       "width":100,
-      "image":"res/sunrise.png"
+      "image":"res/drawable/sunrise.png"
     },
     "labelSunrise":{
       "class":"layout.Label",
@@ -57,7 +57,7 @@
       "y":25,
       "height":100,
       "width":100,
-      "image":"res/sunset.png"
+      "image":"res/drawable/sunset.png"
     },
     "labelSunset":{
       "class":"layout.Label",
@@ -139,7 +139,7 @@
       "y":120,
       "height":190,
       "width":190,
-      "image":"res/compass.png"
+      "image":"res/drawable/compass.png"
     },
     "labelDegress":{
       "class":"layout.Label",
