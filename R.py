@@ -3,8 +3,10 @@ import json
 global values
 global strings
 global code
+global config
 
-
+HORIZONTAL = "horizontal"
+LANDSCAPE = "landscape"
 class Resources:
     def __init__(self):
         resource = "res/values/strings.json"
@@ -26,16 +28,31 @@ class Resources:
     def values(self):
         return self.mValues["tokens"]
 
+    def translate(self, value):
+        if value in self.mValues["tokens"]:
+            return self.mValues["tokens"][value]
+        else:
+            return value
+
+class Configuration:
+    def __init__(self):
+        with open('config.json') as f:
+            config = json.load(f)
+            for attr in config:
+                setattr(self, unicode(attr.upper()), config[attr])
+
+
 
 def init(language=None):
-    resource = "res/values/strings.json"
-    with open('config.json') as f:
-        config = json.load(f)
     global values
     global strings
-    strings = Resources()
+    global config
+    resource = "res/values/strings.json"
 
-    if config["language"] != "default":
+
+    strings = Resources()
+    config = Configuration()
+    if config.LANGUAGE != "default":
         resource = "res/values-{0}/strings.json".format(config["language"])
     with open(resource) as f:
         values= json.load(f)

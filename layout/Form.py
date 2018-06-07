@@ -10,22 +10,31 @@ from layout.Resource import Resource
 from pydoc import locate
 
 
+
+
 class Form(Resource):
-    def __init__(self, name, height=640, width=384):
+    def __init__(self, name):
         Resource.__init__(self, name)
+        R.init()  # Initialize resources
         # https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes
         # L (8-bit pixels, black and white)
-        self.mMask = Image.new('1', (height, width), 255)
+        if R.config.ORIENTATION == R.HORIZONTAL:
+            self.mMask = Image.new('1', (R.config.WIDTH, R.config.HEIGHT), 255)
+        else:
+            self.mMask = Image.new('1', (R.config.HEIGHT, R.config.WIDTH), 255)
         self.mDraw = None
         self.mLayout = None
         self.mChildren = OrderedDict()
-        R.init()  # Initialize tokens
         self.loadlayout(self.layout)
 
     @property
     def layout(self):
         if self.mLayout is None:
-            with open("res/layout/{0}.json".format(self.name)) as f:
+            if R.config.ORIENTATION == R.HORIZONTAL:
+                resource = "res/layout/{0}.json".format(self.name)
+            else:
+                resource = "res/layout-landscape/{0}.json".format(self.name)
+            with open(resource) as f:
                 self.mLayout = json.load(f)
         return self.mLayout[self.name]
 

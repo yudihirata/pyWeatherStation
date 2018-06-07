@@ -7,10 +7,19 @@ class Line(Resource):
         self.mXY = xy
         self.mFill = fill
         self.mWidth = width
+        self.mDashedline = False
 
     @property
     def xy(self):
         return self.mXY
+
+    @property
+    def dashedline(self):
+        return self.mDashedline
+
+    @dashedline.setter
+    def dashedline(self, value):
+        self.mDashedline = (value.lower() == "true")
 
     @xy.setter
     def xy(self, value):
@@ -43,5 +52,15 @@ class Line(Resource):
         if "width" in layout:
             self.width = layout["width"]
 
+        if "dashedline" in layout:
+            self.dashedline = layout["dashedline"]
+
     def createview(self):
-        self.parent.draw.line(self.xy, self.fill, self.width)
+        if self.dashedline is True:
+            x = 0
+            width = self.xy[2] - self.xy[0]
+            for index in range(width / 5):
+                self.parent.draw.line((x, self.xy[1], x + 5, self.xy[3]), width=self.width)
+                x = x + 10
+        else:
+            self.parent.draw.line(self.xy, self.fill, self.width)

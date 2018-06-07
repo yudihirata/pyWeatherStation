@@ -2,6 +2,8 @@ import json
 # https://openweathermap.org/current
 import time
 import math
+from datetime import datetime
+
 import R
 
 class Weather:
@@ -54,6 +56,7 @@ class Weather:
     # api.openweathermap.org/data/2.5/weather?q={city name},{country code}
     def __init__(self, data):
         self.mConfig = None
+        self.mDateformat = "%A %d %B"
         self.data = data
 
     @property
@@ -73,7 +76,19 @@ class Weather:
         return unicode(time.strftime("%a %d %B") + "  " + time.strftime("%H:%M"), 'UTF-8').title()
 
     @property
-    def date(self, format="%A %d %B"):
+    def dateformat (self):
+        return self.mDateformat
+
+    @dateformat.setter
+    def dateformat(self, value):
+        self.mDateFormat = value
+
+    @property
+    def date(self):
+        """Current Date"""
+        return self.getdate(self.dateformat)
+
+    def getdate(self, format="%A %d %B"):
         """Current Date"""
         return unicode(time.strftime(format), 'UTF-8').title()
 
@@ -146,14 +161,14 @@ class Weather:
         return self.data["main"]["humidity"]
 
     @property
-    def min_temperature(self):
+    def mintemperature(self):
         """ Minimum temperature at the moment. This is deviation from current temp that is possible
         for large cities and megalopolises geographically expanded (use these parameter optionally).
         Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit. """
         return int(self.data["main"]["temp_min"])
 
     @property
-    def max_temperature(self):
+    def maxtemperature(self):
         """ Maximum temperature at the moment. This is deviation from current temp that is possible
         for large cities and megalopolises geographically expanded (use these parameter optionally).
         Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit. """
@@ -200,7 +215,8 @@ class Weather:
             # return direction[compassdir]
             if compassdir >= len(direction):
                 compassdir = 16
-        return direction[compassdir]
+            return direction[compassdir]
+        return "N"
 
     @property
     def cloudiness(self):
@@ -225,6 +241,10 @@ class Weather:
     def dt(self):
         """  Time of data calculation, unix, UTC """
         return self.data["dt"]
+
+    def getdt(self, format="%a %d %B %H:%M"):
+        """  Time of data calculation, unix, UTC """
+        return R.strings.translate(unicode(datetime.fromtimestamp(self.data["dt"]).strftime(format)).title())
 
     @property
     def country(self):

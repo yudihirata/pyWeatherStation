@@ -45,6 +45,5 @@ class ForecastFive(object):
             count = count + 1
         plt.bar(x2, tmax, color="black")
         plt.bar(x2, tmin, color="gray")
-
         plt.axis("off")
-        plt.savefig(filename, bbox_inches='tight', orientation="landscape", transparent=True, frameon=True, dpi=300)
+        plt.savefig(filename, bbox_inches='tight', orientation="landscape", transparent=True, frameon=False, dpi=300)

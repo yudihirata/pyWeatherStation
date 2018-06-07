@@ -57,8 +57,16 @@
     "804": "overcast clouds"
   },
   "tokens":{
-    "Humidity":"Humidity",
-    "Pressure":"Pressure",
-    "Wind":"Wind"
+    "HUMIDITY":"Humidity",
+    "PRESSURE":"Pressure",
+    "WIND":"Wind",
+    "Rain":"Rain",
+    "Sun":"Sun",
+    "Mon":"Mon",
+    "Tue":"Tue",
+    "Wed":"Wed",
+    "Thu":"Thu",
+    "Fri":"Fri",
+    "Sat":"Sat"
   }
 }
