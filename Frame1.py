@@ -14,12 +14,17 @@ class Frame1(Form):
         self.children["labelSunrise"].text = weather.sunrise
         self.children["labelSunset"].text = weather.sunset
         self.children["labelCity"].text = weather.cityname
+        self.children["labelLastUpdated"].text = u"{0}:{1} ".format(R.strings.LAST_UPDATED,
+                                                                   weather.getdate("%m/%d %H:%M"))
         self.children["labelTemperature"].text = str(weather.temperature) + weather.temperatureunit
         self.children["labelMinTemperature"].text = str(weather.mintemperature) + weather.temperatureunit
         self.children["labelMaxTemperature"].text = str(weather.maxtemperature) + weather.temperatureunit
         self.children["labelHumidity"].text = u"{0}:{1}%".format(R.strings.HUMIDITY, str(weather.humidity))
         self.children["labelPressure"].text = u"{0}:{1}{2}".format(R.strings.PRESSURE, weather.pressure,
                                                                    weather.pressureunit)
+        self.children["labelOthers"].text = ""
+        if weather.rain is not None:
+            self.children["labelOthers"].text = u"{0}:{1:.2f} mm/hour".format(R.strings.RAIN, weather.rain)
         # Forces the field to be centered within 4 spaces.
         self.children["labelDirection"].text = u"{:^4}".format(weather.winddegreesdescription)
         # Forces the field to be centered within 4 spaces.

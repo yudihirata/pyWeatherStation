@@ -60,6 +60,7 @@
     "HUMIDITY":"Humidity",
     "PRESSURE":"Pressure",
     "WIND":"Wind",
+    "LAST_UPDATED": "Last updated",
     "Rain":"Rain",
     "Sun":"Sun",
     "Mon":"Mon",

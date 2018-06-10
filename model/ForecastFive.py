@@ -1,5 +1,8 @@
 #https://openweathermap.org/forecast5
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
 
 class ForecastFive(object):
 

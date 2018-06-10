@@ -1,23 +1,50 @@
 {
   "Frame2": {
-    "labelCity":{
+    "labelDate":{
       "class":"layout.Label",
-      "x":10,
+      "x":15,
       "y":5,
       "font":{
         "name":"FreeMonoBold",
         "size":25
       }
     },
-    "labelDay":{
+    "labelDescription":{
       "class":"layout.Label",
-      "x":10,
-      "y":30,
+      "x":15,
+      "y":35,
       "font":{
         "name":"FreeMonoBold",
         "size":25
-      },
-      "text":"Saturday"
+      }
+    },
+    "labelCity":{
+      "class":"layout.Label",
+      "x":15,
+      "y":65,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":25
+      }
+    },
+    "labelLastUpdated":{
+      "class":"layout.Label",
+      "x":180,
+      "y":80,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      }
+    },
+     "LineTop":{
+       "class":"layout.Line",
+       "x":0,
+       "y":95,
+       "x1":640,
+       "y1":95,
+       "fill":0,
+       "width":3,
+       "dashedline":"true"
     },
     "iconCondition":{
       "class":"layout.Icon",

@@ -39,7 +39,7 @@
     },
      "iconChart":{
       "class":"layout.Icon",
-      "x":-15,
+      "x":20,
       "y":145,
       "height":80,
       "width":620,
@@ -78,7 +78,7 @@
     "labelOthers":{
       "class":"layout.Label",
       "x":360,
-      "y":90,
+      "y":115,
       "font":{
         "name":"FreeMonoBold",
         "size":20
@@ -224,6 +224,15 @@
         "size":17
       },
       "text":"15° 16°"
+    },
+    "labelLastUpdated":{
+      "class":"layout.Label",
+      "x":460,
+      "y":372 ,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":12
+      }
     },
     "EllipseFrame1":{
        "class":"layout.Ellipse",

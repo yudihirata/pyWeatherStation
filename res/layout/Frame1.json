@@ -44,7 +44,7 @@
     },
     "labelSunrise":{
       "class":"layout.Label",
-      "x":395,
+      "x":410,
       "y":5,
       "font":{
         "name":"FreeMonoBold",
@@ -61,7 +61,7 @@
     },
     "labelSunset":{
       "class":"layout.Label",
-      "x":520,
+      "x":530,
       "y":5,
       "font":{
         "name":"FreeMonoBold",
@@ -97,40 +97,49 @@
     },
     "labelHumidity":{
       "class":"layout.Label",
-      "x":500,
-      "y":320,
+      "x":250,
+      "y":280,
       "text":"Humidity",
       "font":{
         "name":"FreeMonoBold",
         "size":20
       }
     },
-    "labelHumidityValue":{
-      "class":"layout.Label",
-      "x":500,
-      "y":350,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":30
-      }
-    },
     "labelPressure":{
       "class":"layout.Label",
-      "x":350,
-      "y":320,
+      "x":250,
+      "y":300,
       "text":"Pressure",
       "font":{
         "name":"FreeMonoBold",
         "size":20
       }
     },
-    "labelPressureValue":{
+    "labelSpeed":{
       "class":"layout.Label",
-      "x":350,
-      "y":350,
+      "x":250,
+      "y":320,
       "font":{
         "name":"FreeMonoBold",
-        "size":30
+        "size":20
+      }
+    },
+    "labelOthers":{
+      "class":"layout.Label",
+      "x":250,
+      "y":340,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":18
+      }
+    },
+    "labelLastUpdated":{
+      "class":"layout.Label",
+      "x":460,
+      "y":370,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":12
       }
     },
     "iconDirection":{
@@ -157,15 +166,6 @@
       "font":{
         "name":"FreeMonoBold",
         "size":28
-      }
-    },
-    "labelSpeed":{
-      "class":"layout.Label",
-      "x":350,
-      "y":120,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":20
       }
     },
      "LineSeparator":{

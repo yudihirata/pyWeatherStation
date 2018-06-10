@@ -226,7 +226,7 @@ class Weather:
     @property
     def rain(self):
         """ Rain volume for the last 3 hours """
-        if "rain" in self.data:
+        if "rain" in self.data and len(self.data["rain"])> 0:
             return self.data["rain"]["3h"]
         return None
 

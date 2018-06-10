@@ -5,7 +5,7 @@ global strings
 global code
 global config
 
-HORIZONTAL = "horizontal"
+PORTRAIT = "portrait"
 LANDSCAPE = "landscape"
 class Resources:
     def __init__(self):

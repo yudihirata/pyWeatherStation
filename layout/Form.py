@@ -18,10 +18,13 @@ class Form(Resource):
         R.init()  # Initialize resources
         # https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes
         # L (8-bit pixels, black and white)
-        if R.config.ORIENTATION == R.HORIZONTAL:
+        if R.config.ORIENTATION == R.LANDSCAPE:
             self.mMask = Image.new('1', (R.config.WIDTH, R.config.HEIGHT), 255)
         else:
             self.mMask = Image.new('1', (R.config.HEIGHT, R.config.WIDTH), 255)
+
+
+        
         self.mDraw = None
         self.mLayout = None
         self.mChildren = OrderedDict()
@@ -30,10 +33,10 @@ class Form(Resource):
     @property
     def layout(self):
         if self.mLayout is None:
-            if R.config.ORIENTATION == R.HORIZONTAL:
+            if R.config.ORIENTATION == R.LANDSCAPE:
                 resource = "res/layout/{0}.json".format(self.name)
             else:
-                resource = "res/layout-landscape/{0}.json".format(self.name)
+                resource = "res/layout-portrait/{0}.json".format(self.name)
             with open(resource) as f:
                 self.mLayout = json.load(f)
         return self.mLayout[self.name]
@@ -85,5 +88,8 @@ class Form(Resource):
                 resource.createview()
 
     def save(self, output):
-        out = self.mask.rotate(0)
+        if R.config.ORIENTATION == R.PORTRAIT:
+            out = self.mask.rotate(-90, expand=True)
+        else:
+            out = self.mask.rotate(0, expand=True)
         out.save(output, "bmp")

@@ -27,6 +27,15 @@
         "size":25
       }
     },
+    "labelLastUpdated":{
+      "class":"layout.Label",
+      "x":180,
+      "y":80,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      }
+    },
      "LineTop":{
        "class":"layout.Line",
        "x":0,
@@ -34,7 +43,8 @@
        "x1":640,
        "y1":95,
        "fill":0,
-       "width":3
+       "width":3,
+       "dashedline":"true"
     },
     "iconCondition":{
       "class":"layout.Icon",
@@ -89,7 +99,7 @@
     },
     "labelSunrise":{
       "class":"layout.Label",
-      "x":54,
+      "x":64,
       "y":400,
       "font":{
         "name":"FreeMonoBold",
@@ -106,7 +116,7 @@
     },
     "labelSunset":{
       "class":"layout.Label",
-      "x":250,
+      "x":260,
       "y":400,
       "font":{
         "name":"FreeMonoBold",
@@ -149,33 +159,42 @@
         "size":24
       }
     },
-     "labelHumidity":{
-      "class":"layout.Label",
-      "x":15,
-      "y":440,
-      "text":"Humidity",
-      "font":{
-        "name":"FreeMonoBold",
-        "size":14
-      }
-    },
     "labelPressure":{
       "class":"layout.Label",
       "x":15,
-      "y":460,
+      "y":440,
       "text":"Pressure",
       "font":{
         "name":"FreeMonoBold",
-        "size":14
+        "size":18
+      }
+    },
+     "labelHumidity":{
+      "class":"layout.Label",
+      "x":15,
+      "y":470,
+      "text":"Humidity",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":18
       }
     },
     "labelSpeed":{
       "class":"layout.Label",
       "x":15,
-      "y":480,
+      "y":500,
       "font":{
         "name":"FreeMonoBold",
-        "size":14
+        "size":18
+      }
+    },
+    "labelOthers":{
+      "class":"layout.Label",
+      "x":15,
+      "y":530,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":18
       }
     },
     "EllipseFrame1":{
@@ -184,7 +203,7 @@
        "y":618,
        "x1":27,
        "y1":628,
-       "fill":255,
+       "fill":0,
        "outline":0
     },
     "EllipseFrame2":{
@@ -193,7 +212,7 @@
        "y":618,
        "x1":47,
        "y1":628,
-       "fill":0,
+       "fill":255,
        "outline":0
     },
     "EllipseFrame3":{
