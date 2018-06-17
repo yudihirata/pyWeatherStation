@@ -4,6 +4,8 @@ import time
 import math
 from datetime import datetime
 
+import pytz
+
 import R
 
 class Weather:
@@ -244,7 +246,7 @@ class Weather:
 
     def getdt(self, format="%a %d %B %H:%M"):
         """  Time of data calculation, unix, UTC """
-        return R.strings.translate(unicode(datetime.fromtimestamp(self.data["dt"]).strftime(format)).title())
+        return R.strings.translate(unicode(datetime.fromtimestamp(self.data["dt"], pytz.utc).strftime(format)).title())
 
     @property
     def country(self):

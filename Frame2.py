@@ -3,12 +3,11 @@ from datetime import datetime
 import R
 from layout.Form import Form
 from model import Weather
-
+import pytz
 
 class Frame2(Form):
 
-    def __init__(self, forecastfive):
-        weather = Weather(forecastfive.list[0])
+    def __init__(self, weather, forecastfive):
         Form.__init__(self, "Frame2")
         self.children["labelCity"].text = forecastfive.city["name"]
         self.children["labelDate"].text = weather.date
@@ -30,18 +29,24 @@ class Frame2(Form):
         self.children["iconChart"].file = "forecast.png"
         availableicon = 5
         nextday = weather.getdate("%d")
+        nexthour = weather.getdt("%I %p")
         for data in forecastfive.list:
-            day = datetime.fromtimestamp(data["dt"]).strftime('%d')
-            if nextday != day:
+            weather = Weather(data)
+            day = weather.getdt('%d')
+            hour = weather.getdt('%I %p')
+            if nextday != day and hour !=nexthour:
                 nextday = day
-                weather = Weather(data)
+                nexthour = hour
+
                 availableicon = availableicon - 1
-                self.children["label{0}".format(5 - availableicon)].text = weather.getdt("%a")
-                self.children["iconCondition{0}".format(5 - availableicon)].file = weather.icon
+                index = (5 - availableicon)
+                self.children["label{0}".format(index)].text = weather.getdt("%a")
+                self.children["labelHour{0}".format(index)].text = hour
+                self.children["iconCondition{0}".format(index)].file = weather.icon
                 temp = u"{0}\N{DEGREE SIGN}/"u"{1}\N{DEGREE SIGN}".format(weather.mintemperature,
                                                                           weather.maxtemperature)
                 # Forces the field to be centered within the available space.
-                self.children["label{0}minmax".format(5 - availableicon)].text = u"{:^9}".format(temp)
+                self.children["label{0}minmax".format(index)].text = u"{:^9}".format(temp)
             if availableicon == 0:
                 break
         self.createview()

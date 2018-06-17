@@ -38,15 +38,13 @@ class ForecastFive(object):
 
     def createchart(self, filename):
         x2 = []
-        tmax = []
-        tmin = []
+        temp = []
+
         count =1
         for value in self.list:
-            tmax.append(value["main"]["temp_max"])
-            tmin.append(value["main"]["temp_min"])
+            temp.append(value["main"]["temp"])
             x2.append(count)
             count = count + 1
-        plt.bar(x2, tmax, color="black")
-        plt.bar(x2, tmin, color="gray")
+        plt.bar(x2, temp, color="black")
         plt.axis("off")
         plt.savefig(filename, bbox_inches='tight', orientation="landscape", transparent=True, frameon=False, dpi=300)

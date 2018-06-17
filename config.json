@@ -7,5 +7,11 @@
   "unit":"metric",
   "orientation":"portrait",
   "width":640,
-  "height":384
+  "height":384,
+  "accuweather":{
+    "api_key":"PIa1wLqdfMGuu18sp2pGQfMWl1cE8UkQ",
+    "unit":"metric",
+    "forecastfive":"http://dataservice.accuweather.com/forecasts/v1/daily/5day",
+    "unique_id":"36454"
+  }
 }
