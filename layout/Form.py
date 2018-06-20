@@ -10,8 +10,6 @@ from layout.Resource import Resource
 from pydoc import locate
 
 
-
-
 class Form(Resource):
     def __init__(self, name):
         Resource.__init__(self, name)
@@ -23,8 +21,6 @@ class Form(Resource):
         else:
             self.mMask = Image.new('1', (R.config.HEIGHT, R.config.WIDTH), 255)
 
-
-        
         self.mDraw = None
         self.mLayout = None
         self.mChildren = OrderedDict()
@@ -64,7 +60,6 @@ class Form(Resource):
         return self.mDraw
 
     def add(self, resource, x=None, y=None):
-
         resource.parent = self
         if x is not None:
             resource.x = x

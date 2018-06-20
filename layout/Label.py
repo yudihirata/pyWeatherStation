@@ -3,6 +3,7 @@ from layout.Resource import Resource
 from PIL import ImageFont
 import R
 
+
 class Label(Resource):
     def __init__(self, name, text=None, font=None, fill=0):
         """

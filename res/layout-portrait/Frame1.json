@@ -172,7 +172,7 @@
      "labelHumidity":{
       "class":"layout.Label",
       "x":15,
-      "y":470,
+      "y":460,
       "text":"Humidity",
       "font":{
         "name":"FreeMonoBold",
@@ -182,7 +182,7 @@
     "labelSpeed":{
       "class":"layout.Label",
       "x":15,
-      "y":500,
+      "y":480,
       "font":{
         "name":"FreeMonoBold",
         "size":18
@@ -191,7 +191,7 @@
     "labelOthers":{
       "class":"layout.Label",
       "x":15,
-      "y":530,
+      "y":500,
       "font":{
         "name":"FreeMonoBold",
         "size":18

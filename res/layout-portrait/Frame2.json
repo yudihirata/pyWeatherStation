@@ -49,7 +49,7 @@
     "iconCondition":{
       "class":"layout.Icon",
       "x":10,
-      "y":90,
+      "y":100,
       "height":150,
       "width":150,
       "image":"res/drawable/01n.png"

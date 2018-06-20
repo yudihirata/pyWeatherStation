@@ -5,6 +5,7 @@ from layout.Form import Form
 from model import Weather
 import pytz
 
+
 class Frame2(Form):
 
     def __init__(self, weather, forecastfive):
@@ -23,18 +24,18 @@ class Frame2(Form):
         self.children["labelWind"].text = "{0}:{1} {2} ".format(R.strings.WIND, weather.windspeed,
                                                                 weather.windspeedunit)
         self.children["labelLastUpdated"].text = u"{0}:{1} ".format(R.strings.LAST_UPDATED,
-                                                                   weather.getdate("%m/%d %H:%M"))
+                                                                    weather.get_date("%m/%d %H:%M"))
         forecastfive.createchart("forecast.png")
 
         self.children["iconChart"].file = "forecast.png"
         availableicon = 5
-        nextday = weather.getdate("%d")
+        nextday = weather.get_date("%d")
         nexthour = weather.getdt("%I %p")
         for data in forecastfive.list:
             weather = Weather(data)
             day = weather.getdt('%d')
             hour = weather.getdt('%I %p')
-            if nextday != day and hour !=nexthour:
+            if nextday != day and hour != nexthour:
                 nextday = day
                 nexthour = hour
 

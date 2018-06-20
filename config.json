@@ -9,9 +9,13 @@
   "width":640,
   "height":384,
   "accuweather":{
+    "city":"barueri",
     "api_key":"PIa1wLqdfMGuu18sp2pGQfMWl1cE8UkQ",
     "unit":"metric",
+    "current":"http://dataservice.accuweather.com/currentconditions/v1",
+    "forecastone":"http://dataservice.accuweather.com/forecasts/v1/daily/1day",
     "forecastfive":"http://dataservice.accuweather.com/forecasts/v1/daily/5day",
-    "unique_id":"36454"
+    "citysearch":"http://dataservice.accuweather.com/locations/v1/cities/search",
+    "language":"en-us"
   }
 }
