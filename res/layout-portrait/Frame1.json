@@ -89,39 +89,60 @@
        "fill":0,
        "width":3
     },
-    "iconSunrise":{
+    "iconSun":{
       "class":"layout.Icon",
-      "x":54,
+      "x":10,
       "y":320,
       "height":80,
       "width":80,
-      "image":"res/drawable/sunrise.png"
+      "image":"res/drawable/1.png"
     },
     "labelSunrise":{
       "class":"layout.Label",
-      "x":64,
-      "y":400,
+      "x":100,
+      "y":340,
       "font":{
         "name":"FreeMonoBold",
         "size":20
       }
-    },
-    "iconSunset":{
-      "class":"layout.Icon",
-      "x":250,
-      "y":320,
-      "height":80,
-      "width":80,
-      "image":"res/drawable/sunset.png"
     },
     "labelSunset":{
       "class":"layout.Label",
-      "x":260,
-      "y":400,
+      "x":100,
+      "y":360,
       "font":{
         "name":"FreeMonoBold",
         "size":20
-      }
+      },
+      "text":"assadas"
+    },
+    "iconMoon":{
+      "class":"layout.Icon",
+      "x":200,
+      "y":320,
+      "height":80,
+      "width":80,
+      "image":"res/drawable/33.png"
+    },
+    "labelMoonrise":{
+      "class":"layout.Label",
+      "x":290,
+      "y":340,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":20
+      },
+      "text":"assadas"
+    },
+    "labelMoonset":{
+      "class":"layout.Label",
+      "x":290,
+      "y":360,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":20
+      },
+      "text":"assadas"
     },
     "LineSeparator":{
       "class":"layout.Line",
@@ -188,10 +209,19 @@
         "size":18
       }
     },
-    "labelOthers":{
+    "labelRain":{
       "class":"layout.Label",
       "x":15,
       "y":500,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":18
+      }
+    },
+    "labelUV":{
+      "class":"layout.Label",
+      "x":15,
+      "y":520,
       "font":{
         "name":"FreeMonoBold",
         "size":18

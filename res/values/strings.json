@@ -61,13 +61,14 @@
     "PRESSURE":"Pressure",
     "WIND":"Wind",
     "LAST_UPDATED": "Last updated",
-    "Rain":"Rain",
-    "Sun":"Sun",
-    "Mon":"Mon",
-    "Tue":"Tue",
-    "Wed":"Wed",
-    "Thu":"Thu",
-    "Fri":"Fri",
-    "Sat":"Sat"
+    "INDEX_UV": "Index UV",
+    "RAIN":"Rain",
+    "SUN":"Sun",
+    "MON":"Mon",
+    "TUE":"Tue",
+    "WED":"Wed",
+    "THU":"Thu",
+    "FRI":"Fri",
+    "SAT":"Sat"
   }
 }

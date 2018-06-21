@@ -56,17 +56,19 @@
     "803": "broken clouds",
     "804": "overcast clouds"
   },
-  "tokens":{
-    "Humidity":"Humidade",
-    "Pressure":"Pressão",
-    "Wind":"Vento",
-    "Rain":"Chuva",
-    "Sun":"Dom",
-    "Mon":"Seg",
-    "Tue":"Ter",
-    "Wed":"Qua",
-    "Thu":"Qui",
-    "Fri":"Sex",
-    "Sat":"Sab"
+   "tokens":{
+    "HUMIDITY":"Humidity",
+    "PRESSURE":"Pressure",
+    "WIND":"Wind",
+    "LAST_UPDATED": "Last updated",
+    "INDEX": "Index",
+    "Rain":"Rain",
+    "SUN":"Dom",
+    "MON":"Seg",
+    "TUE":"Ter",
+    "WED":"Qua",
+    "THU":"Qui",
+    "FRI":"Sex",
+    "SAT":"Sab"
   }
 }

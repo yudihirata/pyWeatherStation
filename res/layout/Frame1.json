@@ -34,13 +34,13 @@
         "size":30
       }
     },
-    "iconSunrise":{
+    "iconSun":{
       "class":"layout.Icon",
       "x":395,
       "y":25,
       "height":100,
       "width":100,
-      "image":"res/drawable/sunrise.png"
+      "image":"res/drawable/1.png"
     },
     "labelSunrise":{
       "class":"layout.Label",
@@ -51,14 +51,6 @@
         "size":24
       }
     },
-    "iconSunset":{
-      "class":"layout.Icon",
-      "x":520,
-      "y":25,
-      "height":100,
-      "width":100,
-      "image":"res/drawable/sunset.png"
-    },
     "labelSunset":{
       "class":"layout.Label",
       "x":530,
@@ -67,6 +59,34 @@
         "name":"FreeMonoBold",
         "size":24
       }
+    },
+    "iconMoon":{
+      "class":"layout.Icon",
+      "x":520,
+      "y":25,
+      "height":100,
+      "width":100,
+      "image":"res/drawable/33.png"
+    },
+    "labelMoonrise":{
+      "class":"layout.Label",
+      "x":290,
+      "y":340,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":20
+      },
+      "text":"assadas"
+    },
+    "labelMoonset":{
+      "class":"layout.Label",
+      "x":290,
+      "y":360,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":20
+      },
+      "text":"assadas"
     },
     "labelTemperature":{
       "class":"layout.Label",
@@ -124,10 +144,19 @@
         "size":20
       }
     },
-    "labelOthers":{
+    "labelRain":{
       "class":"layout.Label",
       "x":250,
       "y":340,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":18
+      }
+    },
+    "labelUV":{
+      "class":"layout.Label",
+      "x":250,
+      "y":360,
       "font":{
         "name":"FreeMonoBold",
         "size":18

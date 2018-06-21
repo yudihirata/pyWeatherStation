@@ -16,16 +16,21 @@ class Frame1(Form):
         self.children["labelDescription"].text = weather.description
         self.children["labelSunrise"].text = forecast.sunrise
         self.children["labelSunset"].text = forecast.sunset
+        self.children["labelMoonrise"].text = forecast.moonrise
+        self.children["labelMoonset"].text = forecast.moonset
         self.children["labelCity"].text = city.localizedname
         self.children["labelLastUpdated"].text = u"{0}:{1} ".format(R.strings.LAST_UPDATED,
                                                                     weather.get_date("%m/%d %H:%M"))
         self.children["labelTemperature"].text = weather.stemperature
-        self.children["labelMinTemperature"].text = str(forecast.min_temperature) + weather.temperatureunit
-        self.children["labelMaxTemperature"].text = str(forecast.max_temperature) + weather.temperatureunit
+        self.children["labelMinTemperature"].text = u"{0}{1}".format(int(forecast.min_temperature),
+                                                                      weather.temperatureunit)
+        self.children["labelMaxTemperature"].text = u"{0}{1}".format(int(forecast.max_temperature),
+                                                                     weather.temperatureunit)
         self.children["labelHumidity"].text = u"{0}:{1}%".format(R.strings.HUMIDITY, str(weather.humidity))
-        self.children["labelPressure"].text = u"{0}:{1}{2}".format(R.strings.PRESSURE, weather.pressure,
+        self.children["labelPressure"].text = u"{0}:{1} {2}".format(R.strings.PRESSURE, weather.pressure,
                                                                    weather.pressureunit)
-        self.children["labelOthers"].text =  u"{0}:{1}".format(R.strings.RAIN, weather.precipitation_1hr)
+        self.children["labelRain"].text =  u"{0}:{1}".format(R.strings.RAIN, weather.precipitation_1hr)
+        self.children["labelUV"].text =  u"{0} :{1}".format(R.strings.INDEX_UV, weather.uv_index)
         self.children["labelDirection"].text = u"{:^4}".format(weather.wind_degrees_description)
         # Forces the field to be centered within 4 spaces.
         self.children["labelDegress"].text = u"{:^4}".format(weather.swind_degrees)

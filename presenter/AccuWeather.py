@@ -25,11 +25,12 @@ class AccuWeather(object):
                 data = json.load(urllib2.urlopen(url))
                 self.mCity = City(data[0])
                 with open(filename, 'w') as outfile:
-                    json.dump(self.mCity, outfile)
+                    json.dump(data, outfile)
             else:
                 with open(filename) as f:
                     data = json.load(f)
                 self.mCity = City(data[0])
+
         return self.mCity
 
     def getcurrent(self):

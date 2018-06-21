@@ -49,7 +49,7 @@ class  Current(BaseObject):
     def pressure(self):
         """  Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data),
         hPa """
-        return int(self.data["Temperature"][self.unit]["Value"])
+        return int(self.data["Pressure"][self.unit]["Value"])
 
     @property
     def pressureunit(self):
@@ -110,4 +110,20 @@ class  Current(BaseObject):
     def getdt(self, format="%a %d %B %H:%M"):
         """  Time of data calculation, unix, UTC """
         return R.strings.translate(unicode(datetime.fromtimestamp(self.dt, pytz.utc).strftime(format)).title())
+
+    @property
+    def uv_index(self):
+        """
+        Measure of the strength of the ultraviolet radiation from the sun. May be NULL.
+        :return:int32.
+        """
+        return self.data["UVIndex"] if "UVIndex" in self.data else 0
+
+    @property
+    def uv_text(self):
+        """
+        Text associated with the UVIndex.
+        :return: string
+        """
+        return self.data["UVIndexText"]
 
