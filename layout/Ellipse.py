@@ -25,8 +25,8 @@ class Ellipse(Resource):
     def outline(self, value):
         self.mOutline = value
 
-    def loadlayout(self, layout):
-        super(Ellipse, self).loadlayout(layout)
+    def load_layout(self, layout):
+        super(Ellipse, self).load_layout(layout)
         if {"x", "y", "x1", "y1"}.issubset(set(layout)):
             self.xy = (layout["x"], layout["y"], layout["x1"], layout["y1"])
         if "fill" in layout:
@@ -35,5 +35,5 @@ class Ellipse(Resource):
         if "outline" in layout:
             self.outline = layout["outline"]
 
-    def createview(self):
+    def create_view(self):
         self.parent.draw.ellipse(self.xy, fill=self.fill, outline=self.outline)

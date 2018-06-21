@@ -1,12 +1,5 @@
 {
   "Frame1": {
-    "iconCondition":{
-      "class":"layout.Icon",
-      "x":50,
-      "y":180,
-      "height":205,
-      "width":205
-    },
     "labelDate":{
       "class":"layout.Label",
       "x":15,
@@ -36,133 +29,59 @@
     },
     "iconSun":{
       "class":"layout.Icon",
-      "x":395,
-      "y":25,
+      "x":375,
+      "y":5,
       "height":100,
       "width":100,
       "image":"res/drawable/1.png"
     },
     "labelSunrise":{
       "class":"layout.Label",
-      "x":410,
-      "y":5,
+      "x":470,
+      "y":45,
       "font":{
         "name":"FreeMonoBold",
-        "size":24
+        "size":14
       }
     },
     "labelSunset":{
       "class":"layout.Label",
-      "x":530,
-      "y":5,
+      "x":470,
+      "y":60,
       "font":{
         "name":"FreeMonoBold",
-        "size":24
+        "size":14
       }
     },
     "iconMoon":{
       "class":"layout.Icon",
-      "x":520,
-      "y":25,
+      "x":500,
+      "y":5,
       "height":100,
       "width":100,
       "image":"res/drawable/33.png"
     },
     "labelMoonrise":{
       "class":"layout.Label",
-      "x":290,
-      "y":340,
+      "x":585,
+      "y":45,
       "font":{
         "name":"FreeMonoBold",
-        "size":20
+        "size":14
       },
-      "text":"assadas"
+      "text":"09:00"
     },
     "labelMoonset":{
       "class":"layout.Label",
-      "x":290,
-      "y":360,
+      "x":585,
+      "y":60,
       "font":{
         "name":"FreeMonoBold",
-        "size":20
+        "size":14
       },
-      "text":"assadas"
+      "text":"09:00"
     },
-    "labelTemperature":{
-      "class":"layout.Label",
-      "x":40,
-      "y":125,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":64
-      }
-    },
-    "labelMinTemperature":{
-      "class":"layout.Label",
-      "x":210,
-      "y":135,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":30
-      }
-    },
-    "labelMaxTemperature":{
-      "class":"layout.Label",
-      "x":210,
-      "y":165,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":30
-      }
-    },
-    "labelHumidity":{
-      "class":"layout.Label",
-      "x":250,
-      "y":280,
-      "text":"Humidity",
-      "font":{
-        "name":"FreeMonoBold",
-        "size":20
-      }
-    },
-    "labelPressure":{
-      "class":"layout.Label",
-      "x":250,
-      "y":300,
-      "text":"Pressure",
-      "font":{
-        "name":"FreeMonoBold",
-        "size":20
-      }
-    },
-    "labelSpeed":{
-      "class":"layout.Label",
-      "x":250,
-      "y":320,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":20
-      }
-    },
-    "labelRain":{
-      "class":"layout.Label",
-      "x":250,
-      "y":340,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":18
-      }
-    },
-    "labelUV":{
-      "class":"layout.Label",
-      "x":250,
-      "y":360,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":18
-      }
-    },
-    "labelLastUpdated":{
+     "labelLastUpdated":{
       "class":"layout.Label",
       "x":460,
       "y":370,
@@ -171,9 +90,118 @@
         "size":12
       }
     },
+     "LineTop":{
+       "class":"layout.Line",
+       "x":0,
+       "y":110,
+       "x1":640,
+       "y1":110,
+       "fill":0,
+       "width":3
+    },
+     "labelHumidity":{
+      "class":"layout.Label",
+      "x":10,
+      "y":140,
+      "text":"Humidity",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":15
+      }
+    },
+     "labelPressure":{
+      "class":"layout.Label",
+      "x":10,
+      "y":160,
+      "text":"Pressure",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":15
+      }
+    },
+    "labelSpeed":{
+      "class":"layout.Label",
+      "x":10,
+      "y":180,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":15
+      }
+    },
+    "labelRain":{
+      "class":"layout.Label",
+      "x":10,
+      "y":200,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":15
+      }
+    },
+    "labelUV":{
+      "class":"layout.Label",
+      "x":10,
+      "y":220,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":15
+      }
+    },
+    "labelHoursOfSun":{
+      "class":"layout.Label",
+      "x":10,
+      "y":240,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":15
+      },
+      "text":""
+    },
+    "iconCondition":{
+      "class":"layout.Icon",
+      "x":180,
+      "y":200,
+      "height":210,
+      "width":210
+    },
+    "labelTemperature":{
+      "class":"layout.Label",
+      "x":190,
+      "y":125,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":64
+      }
+    },
+    "labelMinTemperature":{
+      "class":"layout.Label",
+      "x":380,
+      "y":125,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":25
+      }
+    },
+     "LineSeparatorTemp":{
+       "class":"layout.Line",
+       "x":380,
+       "y":155,
+       "x1":440,
+       "y1":155,
+       "fill":0,
+       "width":3
+    },
+    "labelMaxTemperature":{
+      "class":"layout.Label",
+      "x":380,
+      "y":160,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":25
+      }
+    },
     "iconDirection":{
       "class":"layout.Icon",
-      "x":400,
+      "x":450,
       "y":120,
       "height":190,
       "width":190,
@@ -181,7 +209,7 @@
     },
     "labelDegress":{
       "class":"layout.Label",
-      "x":475,
+      "x":525,
       "y":190,
       "font":{
         "name":"FreeMonoBold",
@@ -190,7 +218,7 @@
     },
     "labelDirection":{
       "class":"layout.Label",
-      "x":475,
+      "x":525,
       "y":210,
       "font":{
         "name":"FreeMonoBold",
@@ -205,24 +233,6 @@
       "y1":110,
       "fill":0,
       "width":3
-    },
-    "LineTop":{
-       "class":"layout.Line",
-       "x":0,
-       "y":110,
-       "x1":640,
-       "y1":110,
-       "fill":0,
-       "width":3
-    },
-     "LineSeparatorTemp":{
-       "class":"layout.Line",
-       "x":210,
-       "y":165,
-       "x1":280,
-       "y1":165,
-       "fill":0,
-       "width":3
     },
     "EllipseFrame1":{
        "class":"layout.Ellipse",

@@ -45,9 +45,9 @@ class Resource(object):
         self.mParent = value
 
     @abstractmethod
-    def createview(self, layout):
+    def create_view(self, layout):
         pass
 
-    def loadlayout(self, layout):
+    def load_layout(self, layout):
         self.x = layout["x"]
         self.y = layout["y"]

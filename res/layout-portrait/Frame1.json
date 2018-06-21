@@ -49,7 +49,7 @@
     "iconCondition":{
       "class":"layout.Icon",
       "x":120,
-      "y":190,
+      "y":210,
       "height":150,
       "width":150
     },
@@ -156,16 +156,16 @@
     },
     "iconDirection":{
       "class":"layout.Icon",
-      "x":180,
-      "y":440,
+      "x":0,
+      "y":425,
       "height":190,
       "width":190,
       "image":"res/drawable/compass.png"
     },
     "labelDegress":{
       "class":"layout.Label",
-      "x":255,
-      "y":515,
+      "x":75,
+      "y":500,
       "font":{
         "name":"FreeMonoBold",
         "size":24
@@ -173,8 +173,8 @@
     },
     "labelDirection":{
       "class":"layout.Label",
-      "x":255,
-      "y":535,
+      "x":75,
+      "y":520,
       "font":{
         "name":"FreeMonoBold",
         "size":24
@@ -182,49 +182,58 @@
     },
     "labelPressure":{
       "class":"layout.Label",
-      "x":15,
+      "x":220,
       "y":440,
       "text":"Pressure",
       "font":{
         "name":"FreeMonoBold",
-        "size":18
+        "size":14
       }
     },
      "labelHumidity":{
       "class":"layout.Label",
-      "x":15,
+      "x":220,
       "y":460,
       "text":"Humidity",
       "font":{
         "name":"FreeMonoBold",
-        "size":18
+        "size":14
       }
     },
     "labelSpeed":{
       "class":"layout.Label",
-      "x":15,
+      "x":220,
       "y":480,
       "font":{
         "name":"FreeMonoBold",
-        "size":18
+        "size":14
       }
     },
     "labelRain":{
       "class":"layout.Label",
-      "x":15,
+      "x":220,
       "y":500,
       "font":{
         "name":"FreeMonoBold",
-        "size":18
+        "size":14
       }
     },
     "labelUV":{
       "class":"layout.Label",
-      "x":15,
+      "x":220,
       "y":520,
       "font":{
         "name":"FreeMonoBold",
-        "size":18
+        "size":14
+      }
+    },
+    "labelHoursOfSun":{
+      "class":"layout.Label",
+      "x":220,
+      "y":540,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
       }
     },
     "EllipseFrame1":{

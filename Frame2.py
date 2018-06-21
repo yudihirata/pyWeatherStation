@@ -50,4 +50,4 @@ class Frame2(Form):
                 self.children["label{0}minmax".format(index)].text = u"{:^9}".format(temp)
             if availableicon == 0:
                 break
-        self.createview()
+        self.create_view()

@@ -5,17 +5,18 @@
   "api_key":"1497c0f0e51ef524d3be4fc373d72bd1",
   "language":"default",
   "unit":"metric",
-  "orientation":"landscape",
+  "orientation":"portraint",
   "width":640,
   "height":384,
   "accuweather":{
     "city":"barueri",
-    "api_key":"PIa1wLqdfMGuu18sp2pGQfMWl1cE8UkQ",
+    "api_key":"kmNtg8nei6wXM1pRCZ97P1MTo5JQGR3Q",
     "unit":"metric",
     "current":"http://dataservice.accuweather.com/currentconditions/v1",
     "forecastone":"http://dataservice.accuweather.com/forecasts/v1/daily/1day",
     "forecastfive":"http://dataservice.accuweather.com/forecasts/v1/daily/5day",
     "citysearch":"http://dataservice.accuweather.com/locations/v1/cities/search",
-    "language":"en-us"
+    "language":"en-us",
+    "mode":"debug"
   }
 }

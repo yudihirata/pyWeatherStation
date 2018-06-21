@@ -41,8 +41,8 @@ class Line(Resource):
     def width(self, value):
         self.mWidth = value
 
-    def loadlayout(self, layout):
-        super(Line, self).loadlayout(layout)
+    def load_layout(self, layout):
+        super(Line, self).load_layout(layout)
         if {"x", "y", "x1", "y1"}.issubset(set(layout)):
             self.xy = (layout["x"], layout["y"], layout["x1"], layout["y1"])
 
@@ -55,7 +55,7 @@ class Line(Resource):
         if "dashedline" in layout:
             self.dashedline = layout["dashedline"]
 
-    def createview(self):
+    def create_view(self):
         if self.dashedline is True:
             x = 0
             width = self.xy[2] - self.xy[0]

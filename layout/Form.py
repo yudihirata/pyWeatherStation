@@ -24,7 +24,7 @@ class Form(Resource):
         self.mDraw = None
         self.mLayout = None
         self.mChildren = OrderedDict()
-        self.loadlayout(self.layout)
+        self.load_layout(self.layout)
 
     @property
     def layout(self):
@@ -67,20 +67,20 @@ class Form(Resource):
             resource.y = y
         self.children.update({resource.name: resource})
 
-    def loadlayout(self, layout):
+    def load_layout(self, layout):
         # locate classes from layout and create their instances dynamically
         for resource in layout:
             classname = layout[resource]["class"]
             obj = locate(classname)(resource)
-            if "loadlayout" in dir(obj):
-                obj.loadlayout(layout[resource])
+            if "load_layout" in dir(obj):
+                obj.load_layout(layout[resource])
                 self.add(obj)
 
-    def createview(self):
+    def create_view(self):
         for name in self.children:
             if name in self.layout:
                 resource = self.children[name]
-                resource.createview()
+                resource.create_view()
 
     def save(self, output):
         if R.config.ORIENTATION == R.PORTRAIT:

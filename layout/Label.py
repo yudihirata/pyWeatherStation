@@ -43,8 +43,8 @@ class Label(Resource):
     def font(self, value):
         self.mFont = value
 
-    def loadlayout(self, layout):
-        super(Label, self).loadlayout(layout)
+    def load_layout(self, layout):
+        super(Label, self).load_layout(layout)
 
         if "text" in layout:
             if layout["text"] in R.strings.values:
@@ -59,5 +59,5 @@ class Label(Resource):
         else:
             self.font = ImageFont.truetype("res/fonts/FreeMonoBold.ttf", 12)
 
-    def createview(self):
+    def create_view(self):
         self.parent.draw.text((self.x, self.y), self.text, font=self.font, fill=self.fill)
