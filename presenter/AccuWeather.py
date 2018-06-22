@@ -94,21 +94,33 @@ class AccuWeather(object):
         x = []
         y = []
         xlabel=[]
+        ylabel=[]
 
         count = 1
 
         data = self.get_twelve_hours()
+
         for hour in data:
-            y.append(hour["Temperature"]["Value"])
+            temp = hour["Temperature"]["Value"]
+            y.append(temp)
             x.append(count)
+            ylabel.append(int(temp))
             xlabel.append(datetime.fromtimestamp(hour["EpochDateTime"]).strftime("%H"))
             count = count + 1
 
         ax= plt.subplot(2, 1, 1)
         plt.xticks(x, xlabel)
-        plt.plot(x, y, 'o-',  linewidth=5)
-        plt.setp(ax.spines.values(), linewidth=2)
-        # plt.ylabel('Temperature', size=20)
-        # plt.bar(x, temp, color="black")
-        # plt.axis("off")
+        plt.yticks(y, ylabel, size=15, weight='bold')
+        plt.plot(x, y, 'o-', linewidth=1)
+        plt.setp(ax.spines.values(), linewidth=3)
+        ax.get_yaxis().set_visible(False)
+
+        # Hide the right and top spines
+        # ax.spines['right'].set_visible(False)
+        # ax.spines['top'].set_visible(False)
+        # ax.spines['left'].set_visible(False)
+
+
+        for s, d in zip(x, y):
+            plt.annotate(int(d), xy=(s,d), weight='bold', size=14)
         plt.savefig(filename, bbox_inches='tight', orientation="landscape", transparent=True, frameon=True, dpi=300)

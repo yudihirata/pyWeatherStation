@@ -67,7 +67,7 @@
     "labelHumidity":{
       "class":"layout.Label",
       "x":10,
-      "y":250,
+      "y":230,
       "font":{
         "name":"FreeMonoBold",
         "size":18
@@ -77,7 +77,7 @@
     "labelPressure":{
       "class":"layout.Label",
       "x":10,
-      "y":270,
+      "y":250,
       "font":{
         "name":"FreeMonoBold",
         "size":18
@@ -87,7 +87,7 @@
     "labelWind":{
       "class":"layout.Label",
       "x":10,
-      "y":290,
+      "y":270,
       "font":{
         "name":"FreeMonoBold",
         "size":18
@@ -97,7 +97,7 @@
     "labelUV":{
       "class":"layout.Label",
       "x":10,
-      "y":310,
+      "y":290,
       "font":{
         "name":"FreeMonoBold",
         "size":18
@@ -107,7 +107,7 @@
     "labelHoursOfSun":{
       "class":"layout.Label",
       "x":10,
-      "y":330,
+      "y":310,
       "font":{
         "name":"FreeMonoBold",
         "size":18
@@ -117,15 +117,15 @@
     "iconChart":{
       "class":"layout.Icon",
       "x":5,
-      "y":350,
-      "height":145,
-      "width":370,
+      "y":330,
+      "height":190,
+      "width":380,
       "image":"test.png"
     },
     "label1":{
       "class":"layout.Label",
       "x":20,
-      "y":500,
+      "y":520,
       "font":{
         "name":"FreeMonoBold",
         "size":20
@@ -135,7 +135,7 @@
     "iconCondition1":{
       "class":"layout.Icon",
       "x":10,
-      "y":525,
+      "y":545,
       "height":60,
       "width":60,
       "image":"res/drawable/2.png"
@@ -143,7 +143,7 @@
     "label1minmax":{
       "class":"layout.Label",
       "x":10,
-      "y":580,
+      "y":600,
       "font":{
         "name":"FreeMonoBold",
         "size":14
@@ -153,7 +153,7 @@
     "label2":{
       "class":"layout.Label",
       "x":96,
-      "y":500,
+      "y":520,
       "font":{
         "name":"FreeMonoBold",
         "size":20
@@ -163,7 +163,7 @@
     "iconCondition2":{
       "class":"layout.Icon",
       "x":86,
-      "y":525,
+      "y":545,
       "height":60,
       "width":60,
       "image":"res/drawable/3.png"
@@ -171,7 +171,7 @@
     "label2minmax":{
       "class":"layout.Label",
       "x":86,
-      "y":580,
+      "y":600,
       "font":{
         "name":"FreeMonoBold",
         "size":14
@@ -181,7 +181,7 @@
     "label3":{
       "class":"layout.Label",
       "x":172,
-      "y":500,
+      "y":520,
       "font":{
         "name":"FreeMonoBold",
         "size":20
@@ -191,7 +191,7 @@
     "iconCondition3":{
       "class":"layout.Icon",
       "x":162,
-      "y":525,
+      "y":545,
       "height":60,
       "width":60,
       "image":"res/drawable/3.png"
@@ -199,7 +199,7 @@
     "label3minmax":{
       "class":"layout.Label",
       "x":162,
-      "y":580,
+      "y":600,
       "font":{
         "name":"FreeMonoBold",
         "size":14
@@ -209,7 +209,7 @@
     "label4":{
       "class":"layout.Label",
       "x":248,
-      "y":500,
+      "y":520,
       "font":{
         "name":"FreeMonoBold",
         "size":20
@@ -219,7 +219,7 @@
     "iconCondition4":{
       "class":"layout.Icon",
       "x":238,
-      "y":525,
+      "y":545,
       "height":60,
       "width":60,
       "image":"res/drawable/4.png"
@@ -227,7 +227,7 @@
      "label4minmax":{
       "class":"layout.Label",
       "x":238,
-      "y":580,
+      "y":600,
       "font":{
         "name":"FreeMonoBold",
         "size":14
@@ -237,7 +237,7 @@
     "label5":{
       "class":"layout.Label",
       "x":324,
-      "y":500,
+      "y":520,
       "font":{
         "name":"FreeMonoBold",
         "size":20
@@ -247,7 +247,7 @@
     "iconCondition5":{
       "class":"layout.Icon",
       "x":314,
-      "y":525,
+      "y":545,
       "height":60,
       "width":60,
       "image":"res/drawable/6.png"
@@ -255,7 +255,7 @@
     "label5minmax":{
       "class":"layout.Label",
       "x":314,
-      "y":580,
+      "y":600,
       "font":{
         "name":"FreeMonoBold",
         "size":14
