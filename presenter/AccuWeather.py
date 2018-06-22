@@ -116,11 +116,10 @@ class AccuWeather(object):
         ax.get_yaxis().set_visible(False)
 
         # Hide the right and top spines
-        # ax.spines['right'].set_visible(False)
-        # ax.spines['top'].set_visible(False)
-        # ax.spines['left'].set_visible(False)
-
+        ax.spines['right'].set_visible(False)
+        ax.spines['top'].set_visible(False)
 
         for s, d in zip(x, y):
             plt.annotate(int(d), xy=(s,d), weight='bold', size=14)
-        plt.savefig(filename, bbox_inches='tight', orientation="landscape", transparent=True, frameon=True, dpi=300)
+        plt.savefig(filename, bbox_inches='tight', orientation="landscape", transparent=True, frameon=True)
+        plt.clf()
