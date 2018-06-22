@@ -49,7 +49,7 @@
     "iconCondition":{
       "class":"layout.Icon",
       "x":120,
-      "y":210,
+      "y":200,
       "height":150,
       "width":150
     },
@@ -92,15 +92,15 @@
     "iconSun":{
       "class":"layout.Icon",
       "x":10,
-      "y":320,
-      "height":80,
-      "width":80,
+      "y":330,
+      "height":100,
+      "width":100,
       "image":"res/drawable/1.png"
     },
     "labelSunrise":{
       "class":"layout.Label",
-      "x":100,
-      "y":340,
+      "x":110,
+      "y":350,
       "font":{
         "name":"FreeMonoBold",
         "size":20
@@ -108,8 +108,8 @@
     },
     "labelSunset":{
       "class":"layout.Label",
-      "x":100,
-      "y":360,
+      "x":110,
+      "y":370,
       "font":{
         "name":"FreeMonoBold",
         "size":20
@@ -119,15 +119,15 @@
     "iconMoon":{
       "class":"layout.Icon",
       "x":200,
-      "y":320,
-      "height":80,
-      "width":80,
+      "y":330,
+      "height":100,
+      "width":100,
       "image":"res/drawable/33.png"
     },
     "labelMoonrise":{
       "class":"layout.Label",
       "x":290,
-      "y":340,
+      "y":350,
       "font":{
         "name":"FreeMonoBold",
         "size":20
@@ -137,7 +137,7 @@
     "labelMoonset":{
       "class":"layout.Label",
       "x":290,
-      "y":360,
+      "y":370,
       "font":{
         "name":"FreeMonoBold",
         "size":20

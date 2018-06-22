@@ -52,7 +52,7 @@
       "y":100,
       "height":150,
       "width":150,
-      "image":"res/drawable/01n.png"
+      "image":"res/drawable/1.png"
     },
     "labelTemperature":{
       "class":"layout.Label",
@@ -70,7 +70,7 @@
       "y":250,
       "font":{
         "name":"FreeMonoBold",
-        "size":20
+        "size":18
       },
       "text":"Humidity:40%"
     },
@@ -80,7 +80,7 @@
       "y":270,
       "font":{
         "name":"FreeMonoBold",
-        "size":20
+        "size":18
       },
       "text":"Pressure: 1000hPa"
     },
@@ -90,55 +90,55 @@
       "y":290,
       "font":{
         "name":"FreeMonoBold",
-        "size":20
+        "size":18
       },
       "text":"Wind: 2m/s"
     },
-    "labelOthers":{
+    "labelUV":{
       "class":"layout.Label",
       "x":10,
       "y":310,
       "font":{
         "name":"FreeMonoBold",
-        "size":20
+        "size":18
+      },
+      "text":"Pressure: 1000hPa"
+    },
+    "labelHoursOfSun":{
+      "class":"layout.Label",
+      "x":10,
+      "y":330,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":18
       },
       "text":"Pressure: 1000hPa"
     },
     "iconChart":{
       "class":"layout.Icon",
-      "x":-20,
-      "y":380,
-      "height":100,
-      "width":400,
+      "x":5,
+      "y":350,
+      "height":145,
+      "width":370,
       "image":"test.png"
     },
     "label1":{
       "class":"layout.Label",
       "x":20,
-      "y":480,
+      "y":500,
       "font":{
         "name":"FreeMonoBold",
         "size":20
       },
       "text":"Sun"
     },
-    "labelHour1":{
-      "class":"layout.Label",
-      "x":20,
-      "y":505,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":14
-      },
-      "text":"09 PM"
-    },
     "iconCondition1":{
       "class":"layout.Icon",
       "x":10,
-      "y":515,
+      "y":525,
       "height":60,
       "width":60,
-      "image":"res/drawable/02d.png"
+      "image":"res/drawable/2.png"
     },
     "label1minmax":{
       "class":"layout.Label",
@@ -153,30 +153,20 @@
     "label2":{
       "class":"layout.Label",
       "x":96,
-      "y":480,
+      "y":500,
       "font":{
         "name":"FreeMonoBold",
         "size":20
       },
       "text":"Mon"
     },
-    "labelHour2":{
-      "class":"layout.Label",
-      "x":96,
-      "y":505,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":14
-      },
-      "text":"06 PM"
-    },
     "iconCondition2":{
       "class":"layout.Icon",
       "x":86,
-      "y":515,
+      "y":525,
       "height":60,
       "width":60,
-      "image":"res/drawable/02d.png"
+      "image":"res/drawable/3.png"
     },
     "label2minmax":{
       "class":"layout.Label",
@@ -191,30 +181,20 @@
     "label3":{
       "class":"layout.Label",
       "x":172,
-      "y":480,
+      "y":500,
       "font":{
         "name":"FreeMonoBold",
         "size":20
       },
       "text":"Tue"
     },
-    "labelHour3":{
-      "class":"layout.Label",
-      "x":172,
-      "y":505,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":14
-      },
-      "text":"12 AM"
-    },
     "iconCondition3":{
       "class":"layout.Icon",
       "x":162,
-      "y":515,
+      "y":525,
       "height":60,
       "width":60,
-      "image":"res/drawable/02d.png"
+      "image":"res/drawable/3.png"
     },
     "label3minmax":{
       "class":"layout.Label",
@@ -229,30 +209,20 @@
     "label4":{
       "class":"layout.Label",
       "x":248,
-      "y":480,
+      "y":500,
       "font":{
         "name":"FreeMonoBold",
         "size":20
       },
       "text":"Wed"
     },
-    "labelHour4":{
-      "class":"layout.Label",
-      "x":248,
-      "y":505,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":14
-      },
-      "text":"15 PM"
-    },
     "iconCondition4":{
       "class":"layout.Icon",
       "x":238,
-      "y":515,
+      "y":525,
       "height":60,
       "width":60,
-      "image":"res/drawable/02d.png"
+      "image":"res/drawable/4.png"
     },
      "label4minmax":{
       "class":"layout.Label",
@@ -267,30 +237,20 @@
     "label5":{
       "class":"layout.Label",
       "x":324,
-      "y":480,
+      "y":500,
       "font":{
         "name":"FreeMonoBold",
         "size":20
       },
       "text":"Thu"
     },
-    "labelHour5":{
-      "class":"layout.Label",
-      "x":324,
-      "y":505,
-      "font":{
-        "name":"FreeMonoBold",
-        "size":14
-      },
-      "text":"18 PM"
-    },
     "iconCondition5":{
       "class":"layout.Icon",
       "x":314,
-      "y":515,
+      "y":525,
       "height":60,
       "width":60,
-      "image":"res/drawable/02d.png"
+      "image":"res/drawable/6.png"
     },
     "label5minmax":{
       "class":"layout.Label",

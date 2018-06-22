@@ -13,8 +13,8 @@
     "api_key":"kmNtg8nei6wXM1pRCZ97P1MTo5JQGR3Q",
     "unit":"metric",
     "current":"http://dataservice.accuweather.com/currentconditions/v1",
-    "forecastone":"http://dataservice.accuweather.com/forecasts/v1/daily/1day",
     "forecastfive":"http://dataservice.accuweather.com/forecasts/v1/daily/5day",
+    "twelvehours":"http://dataservice.accuweather.com/forecasts/v1/hourly/12hour",
     "citysearch":"http://dataservice.accuweather.com/locations/v1/cities/search",
     "language":"en-us",
     "mode":"debug"

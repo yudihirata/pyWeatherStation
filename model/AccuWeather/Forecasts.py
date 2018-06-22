@@ -11,6 +11,10 @@ class Forecasts(BaseObject):
     def headline(self):
         return self.data["Headline"]
 
+    @property
+    def size(self):
+        return len(self.data["DailyForecasts"])
+
 
     def get_dailyforecasts(self, day):
         """

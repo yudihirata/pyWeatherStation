@@ -1,11 +1,16 @@
 import json
 import os
 import urllib2
+from datetime import datetime
+
+import matplotlib
 
 import R
 from model.AccuWeather import City, Current
-from model.AccuWeather.DailyForecast import DailyForecast
 from model.AccuWeather.Forecasts import Forecasts
+
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 
 class AccuWeather(object):
@@ -30,7 +35,8 @@ class AccuWeather(object):
     def forecasts(self):
         if self.mForecasts is None:
             metric = "true" if R.config.ACCUWEATHER["unit"].lower() == "metric" else "false"
-            url = "{0}/{1}?apikey={2}&details=true&metric={3}".format(R.config.ACCUWEATHER["forecastfive"], self.city.key,
+            url = "{0}/{1}?apikey={2}&details=true&metric={3}".format(R.config.ACCUWEATHER["forecastfive"],
+                                                                      self.city.key,
                                                                       R.config.ACCUWEATHER["api_key"], metric)
 
             if "mode" in R.config.ACCUWEATHER and R.config.ACCUWEATHER["mode"] == "debug":
@@ -38,8 +44,8 @@ class AccuWeather(object):
             else:
                 data = json.load(urllib2.urlopen(url))
             self.mForecasts = Forecasts(data)
-        else:
-            return self.mForecasts
+
+        return self.mForecasts
 
     def get_current(self):
         """
@@ -57,9 +63,6 @@ class AccuWeather(object):
 
         return Current(data[0])
 
-    # def getforecastfive(self):
-    #     url = "{0}?q={1}&units={2}&mode=json&appid={3}".format(self.forecastfive, self.city, self.unit, self.api_key)
-    #     return json.load(urllib2.urlopen(url))
     def refresh(self):
         del self.mForecasts
         self.mForecasts = None
@@ -76,3 +79,36 @@ class AccuWeather(object):
             with open(filename) as f:
                 data = json.load(f)
         return data
+
+    def get_twelve_hours(self):
+        metric = "true" if R.config.ACCUWEATHER["unit"].lower() == "metric" else "false"
+        url = "{0}/{1}?apikey={2}&details=true&metric={3}".format(R.config.ACCUWEATHER["twelvehours"], self.city.key,
+                                                       R.config.ACCUWEATHER["api_key"], metric)
+        if "mode" in R.config.ACCUWEATHER and R.config.ACCUWEATHER["mode"] == "debug":
+            data = self.get_cache("twelve.json", url)
+        else:
+            data = json.load(urllib2.urlopen(url))
+        return data
+
+    def createchart(self, filename):
+        x = []
+        y = []
+        xlabel=[]
+
+        count = 1
+
+        data = self.get_twelve_hours()
+        for hour in data:
+            y.append(hour["Temperature"]["Value"])
+            x.append(count)
+            xlabel.append(datetime.fromtimestamp(hour["EpochDateTime"]).strftime("%H"))
+            count = count + 1
+
+        ax= plt.subplot(2, 1, 1)
+        plt.xticks(x, xlabel)
+        plt.plot(x, y, 'o-',  linewidth=5)
+        plt.setp(ax.spines.values(), linewidth=2)
+        # plt.ylabel('Temperature', size=20)
+        # plt.bar(x, temp, color="black")
+        # plt.axis("off")
+        plt.savefig(filename, bbox_inches='tight', orientation="landscape", transparent=True, frameon=True, dpi=300)

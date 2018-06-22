@@ -29,8 +29,8 @@ def main():
     frame1.save('frame1.bmp')
  #
  #    forecast = ForecastFive(presenter.getforecastfive())
- #    frame2 = Frame2(current, forecast)
- #    frame2.save('frame2.bmp')
+    frame2 = Frame2(accuweather)
+    frame2.save('frame2.bmp')
  #
  #    image = Image.open('frame1.bmp')
  # #   buffer = epd.get_frame_buffer(image)

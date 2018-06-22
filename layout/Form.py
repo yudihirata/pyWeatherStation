@@ -15,11 +15,13 @@ class Form(Resource):
         Resource.__init__(self, name)
         R.init()  # Initialize resources
         # https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes
+        # 1 (1-bit pixels, black and white, stored with one pixel per byte)
         # L (8-bit pixels, black and white)
+        # P (8-bit pixels, mapped to any other mode using a colour palette)
         if R.config.ORIENTATION == R.LANDSCAPE:
-            self.mMask = Image.new('1', (R.config.WIDTH, R.config.HEIGHT), 255)
+            self.mMask = Image.new('P', (R.config.WIDTH, R.config.HEIGHT), 255)
         else:
-            self.mMask = Image.new('1', (R.config.HEIGHT, R.config.WIDTH), 255)
+            self.mMask = Image.new('P', (R.config.HEIGHT, R.config.WIDTH), 255)
 
         self.mDraw = None
         self.mLayout = None
@@ -87,4 +89,5 @@ class Form(Resource):
             out = self.mask.rotate(-90, expand=True)
         else:
             out = self.mask.rotate(0, expand=True)
-        out.save(output, "bmp")
+        out.convert("P")
+        out.save(output, "bmp", quality=100)
