@@ -27,8 +27,10 @@ class Ellipse(Resource):
 
     def load_layout(self, layout):
         super(Ellipse, self).load_layout(layout)
-        if {"x", "y", "x1", "y1"}.issubset(set(layout)):
-            self.xy = (layout["x"], layout["y"], layout["x1"], layout["y1"])
+        self.x1 = layout["x1"] if "x1" in layout else None
+        self.y1 = layout["y1"] if "y1" in layout else None
+        self.xy = (self.x, self.y, self.x1, self.y1)
+
         if "fill" in layout:
             self.fill = layout["fill"]
 

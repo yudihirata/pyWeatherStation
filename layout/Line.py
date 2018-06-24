@@ -8,7 +8,24 @@ class Line(Resource):
         self.mFill = fill
         self.mWidth = width
         self.mDashedline = False
+        self.mX1 = None
+        self.mY1 = None
 
+    @property
+    def x1(self):
+        return self.mX1
+
+    @x1.setter
+    def x1(self, value):
+        self.mX1 = value
+
+    @property
+    def y1(self):
+        return self.mY1
+
+    @y1.setter
+    def y1(self, value):
+        self.mY1 = value
     @property
     def xy(self):
         return self.mXY
@@ -43,8 +60,9 @@ class Line(Resource):
 
     def load_layout(self, layout):
         super(Line, self).load_layout(layout)
-        if {"x", "y", "x1", "y1"}.issubset(set(layout)):
-            self.xy = (layout["x"], layout["y"], layout["x1"], layout["y1"])
+        self.x1 = layout["x1"] if "x1" in layout else None
+        self.y1 = layout["y1"] if "y1" in layout else None
+        self.xy = (self.x, self.y, self.x1, self.y1)
 
         if "fill" in layout:
             self.fill = layout["fill"]

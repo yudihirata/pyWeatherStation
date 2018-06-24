@@ -18,6 +18,7 @@ class AccuWeather(object):
     def __init__(self):
         self.mCity = None
         self.mForecasts = None
+        self.mTwelveHours = None
 
     @property
     def city(self):
@@ -47,6 +48,7 @@ class AccuWeather(object):
 
         return self.mForecasts
 
+
     def get_current(self):
         """
         Current weather data
@@ -66,6 +68,7 @@ class AccuWeather(object):
     def refresh(self):
         del self.mForecasts
         self.mForecasts = None
+        self.mTwelveHours = None
 
     def get_dailyforecast(self, day):
         return self.forecasts.get_dailyforecasts(day)
@@ -80,46 +83,48 @@ class AccuWeather(object):
                 data = json.load(f)
         return data
 
-    def get_twelve_hours(self):
+    @property
+    def twelve_hours(self):
         metric = "true" if R.config.ACCUWEATHER["unit"].lower() == "metric" else "false"
         url = "{0}/{1}?apikey={2}&details=true&metric={3}".format(R.config.ACCUWEATHER["twelvehours"], self.city.key,
-                                                       R.config.ACCUWEATHER["api_key"], metric)
-        if "mode" in R.config.ACCUWEATHER and R.config.ACCUWEATHER["mode"] == "debug":
-            data = self.get_cache("twelve.json", url)
-        else:
-            data = json.load(urllib2.urlopen(url))
-        return data
+                                                                  R.config.ACCUWEATHER["api_key"], metric)
+        if self.mTwelveHours is None:
+            if "mode" in R.config.ACCUWEATHER and R.config.ACCUWEATHER["mode"] == "debug":
+                self.mTwelveHours = self.get_cache("twelve.json", url)
+            else:
+                self.mTwelveHours = json.load(urllib2.urlopen(url))
+        return self.mTwelveHours
 
     def createchart(self, filename):
         x = []
         y = []
-        xlabel=[]
-        ylabel=[]
+        xlabel = []
+        ylabel = []
 
         count = 1
 
-        data = self.get_twelve_hours()
-
-        for hour in data:
+        for hour in self.twelve_hours:
             temp = hour["Temperature"]["Value"]
-            y.append(temp)
+            y.append(int(temp))
             x.append(count)
             ylabel.append(int(temp))
             xlabel.append(datetime.fromtimestamp(hour["EpochDateTime"]).strftime("%H"))
             count = count + 1
 
-        ax= plt.subplot(2, 1, 1)
-        plt.xticks(x, xlabel)
-        plt.yticks(y, ylabel, size=15, weight='bold')
-        plt.plot(x, y, 'o-', linewidth=1)
-        plt.setp(ax.spines.values(), linewidth=3)
-        ax.get_yaxis().set_visible(False)
+        ax = plt.subplot(2, 1, 1)
+        ax.grid(linewidth=1, linestyle="--")
+        plt.xticks(x, xlabel, size=11, weight='bold')
+        plt.yticks(y, ylabel, size=11, weight='bold')
+        plt.plot(x, y, 'o-', linewidth=2)
+        # plt.setp(ax.spines.values(), linewidth=2)
+        # ax.get_yaxis().set_visible(False)
 
         # Hide the right and top spines
         ax.spines['right'].set_visible(False)
         ax.spines['top'].set_visible(False)
+        ax.spines['left'].set_visible(False)
 
-        for s, d in zip(x, y):
-            plt.annotate(int(d), xy=(s,d), weight='bold', size=14)
+        # for s, d in zip(x, y):
+        #     plt.annotate(int(d), xy=(s,d), weight='bold', size=14)
         plt.savefig(filename, bbox_inches='tight', orientation="landscape", transparent=True, frameon=True)
         plt.clf()

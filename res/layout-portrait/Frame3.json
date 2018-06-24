@@ -1,5 +1,5 @@
 {
-  "Frame2": {
+  "Frame3": {
     "labelDate":{
       "class":"layout.Label",
       "x":15,
@@ -41,7 +41,7 @@
       "x":-15,
       "y":90,
       "width":410,
-      "height":150,
+      "height":170,
       "image":"res/drawable/panel.png"
     },
     "iconCondition":{
@@ -94,7 +94,7 @@
     "labelHumidity":{
       "class":"layout.Label",
       "x":10,
-      "y":235,
+      "y":255,
       "font":{
         "name":"FreeMonoBold",
         "size":18
@@ -104,7 +104,7 @@
     "labelPressure":{
       "class":"layout.Label",
       "layout_to_left_of":"labelHumidity",
-      "y":255,
+      "y":275,
       "font":{
         "name":"FreeMonoBold",
         "size":18
@@ -114,7 +114,7 @@
     "labelWind":{
       "class":"layout.Label",
       "layout_to_left_of":"labelHumidity",
-      "y":275,
+      "y":295,
       "font":{
         "name":"FreeMonoBold",
         "size":18
@@ -124,7 +124,7 @@
     "labelUV":{
       "class":"layout.Label",
       "layout_to_left_of":"labelHumidity",
-      "y":295,
+      "y":315,
       "font":{
         "name":"FreeMonoBold",
         "size":18
@@ -134,160 +134,311 @@
     "labelHoursOfSun":{
       "class":"layout.Label",
       "layout_to_left_of":"labelHumidity",
-      "y":315,
+      "y":335,
       "font":{
         "name":"FreeMonoBold",
         "size":18
       },
       "text":"Pressure: 1000hPa"
     },
-    "iconChart":{
-      "class":"layout.Icon",
+    "labelHour":{
+      "class":"layout.Label",
       "x":5,
-      "y":330,
-      "height":190,
-      "width":380,
-      "image":"test.png"
+      "y":370,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+      "text":"Hour"
+    },
+    "labelTemp":{
+      "class":"layout.Label",
+      "x":5,
+      "y":450,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+      "text":"Temp"
+    },
+     "LineSeparatorTemperature":{
+      "class":"layout.Line",
+      "x":0,
+      "y":470,
+      "x1":640,
+      "y1":470,
+      "fill":0,
+      "width":1
+    },
+    "labelRealFeel":{
+      "class":"layout.Label",
+      "x":5,
+      "y":480,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+      "text":"Feel"
+    },
+    "LineSeparatorRealFeel":{
+      "class":"layout.Line",
+      "x":0,
+      "y":500,
+      "x1":640,
+      "y1":500,
+      "fill":0,
+      "width":1
+    },
+    "labelWindSpeed":{
+      "class":"layout.Label",
+      "x":5,
+      "y":510,
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+      "text":"Wind"
     },
     "label1":{
       "class":"layout.Label",
-      "x":20,
-      "y":520,
+      "x":50,
+      "layout_to_top_of":"labelHour",
       "font":{
         "name":"FreeMonoBold",
-        "size":20
+        "size":14
       },
-      "text":"Sun"
+      "text":"09"
     },
     "iconCondition1":{
       "class":"layout.Icon",
-      "x":10,
-      "y":545,
+      "x":40,
+      "y":395,
       "height":60,
       "width":60,
       "image":"res/drawable/2.png"
     },
-    "label1minmax":{
+    "label1Temp":{
       "class":"layout.Label",
-      "x":10,
-      "y":600,
+      "layout_to_left_of":"label1",
+      "layout_to_top_of":"labelTemp",
       "font":{
         "name":"FreeMonoBold",
         "size":14
       },
-      "text":"10°/12°"
+      "text":"12°C"
     },
-    "label2":{
+    "label1RealFeel":{
       "class":"layout.Label",
-      "x":96,
-      "layout_to_top_of":"label1",
+      "layout_to_left_of":"label1",
+      "layout_to_top_of":"labelRealFeel",
       "font":{
         "name":"FreeMonoBold",
-        "size":20
+        "size":14
       },
-      "text":"Mon"
+      "text":"10°C"
+    },
+    "label1WindSpeed":{
+      "class":"layout.Label",
+      "layout_to_left_of":"label1",
+      "layout_to_top_of":"labelWindSpeed",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+      "text":"10km/h"
+    },
+
+    "label2":{
+      "class":"layout.Label",
+      "x":120,
+      "layout_to_top_of":"labelHour",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+      "text":"10"
     },
     "iconCondition2":{
       "class":"layout.Icon",
-      "x":86,
+      "x":110,
       "layout_to_top_of":"iconCondition1",
       "height":60,
       "width":60,
       "image":"res/drawable/3.png"
     },
-    "label2minmax":{
+    "label2Temp":{
       "class":"layout.Label",
-      "x":86,
-      "layout_to_top_of":"label1minmax",
+      "layout_to_left_of":"label2",
+      "layout_to_top_of":"labelTemp",
       "font":{
         "name":"FreeMonoBold",
         "size":14
       },
-      "text":"15°/16°"
+      "text":"15°C"
+    },
+    "label2RealFeel":{
+      "class":"layout.Label",
+      "layout_to_left_of":"label2",
+      "layout_to_top_of":"labelRealFeel",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+     "text":"15°C"
+    },
+    "label2WindSpeed":{
+      "class":"layout.Label",
+      "layout_to_left_of":"label2",
+      "layout_to_top_of":"labelWindSpeed",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+      "text":"10km/h"
     },
     "label3":{
       "class":"layout.Label",
-      "x":172,
-      "layout_to_top_of":"label1",
+      "x":190,
+      "layout_to_top_of":"labelHour",
       "font":{
         "name":"FreeMonoBold",
-        "size":20
+        "size":14
       },
-      "text":"Tue"
+      "text":"11"
     },
     "iconCondition3":{
       "class":"layout.Icon",
-      "x":162,
+      "x":180,
       "layout_to_top_of":"iconCondition1",
       "height":60,
       "width":60,
       "image":"res/drawable/3.png"
     },
-    "label3minmax":{
+    "label3Temp":{
       "class":"layout.Label",
-      "x":162,
-      "layout_to_top_of":"label1minmax",
+      "layout_to_left_of":"label3",
+      "layout_to_top_of":"labelTemp",
       "font":{
         "name":"FreeMonoBold",
         "size":14
       },
-      "text":"15°/16°"
+      "text":"16°C"
+    },
+    "label3RealFeel":{
+      "class":"layout.Label",
+      "layout_to_left_of":"label3",
+      "layout_to_top_of":"labelRealFeel",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+     "text":"15°C"
+    },
+    "label3WindSpeed":{
+      "class":"layout.Label",
+      "layout_to_left_of":"label3",
+      "layout_to_top_of":"labelWindSpeed",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+      "text":"10km/h"
     },
     "label4":{
       "class":"layout.Label",
-      "x":248,
-      "layout_to_top_of":"label1",
+      "x":260,
+      "layout_to_top_of":"labelHour",
       "font":{
         "name":"FreeMonoBold",
-        "size":20
+        "size":14
       },
-      "text":"Wed"
+      "text":"12"
     },
     "iconCondition4":{
       "class":"layout.Icon",
-      "x":238,
+      "x":250,
       "layout_to_top_of":"iconCondition1",
       "height":60,
       "width":60,
       "image":"res/drawable/4.png"
     },
-     "label4minmax":{
+     "label4Temp":{
       "class":"layout.Label",
-      "x":238,
-      "layout_to_top_of":"label1minmax",
+      "layout_to_left_of":"label4",
+      "layout_to_top_of":"labelTemp",
       "font":{
         "name":"FreeMonoBold",
         "size":14
       },
-      "text":"15°/16°"
+      "text":"15°C"
+    },
+    "label4RealFeel":{
+      "class":"layout.Label",
+      "layout_to_left_of":"label4",
+      "layout_to_top_of":"labelRealFeel",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+      "text":"15°C"
+    },
+    "label4WindSpeed":{
+      "class":"layout.Label",
+      "layout_to_left_of":"label4",
+      "layout_to_top_of":"labelWindSpeed",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+      "text":"10km/h"
     },
     "label5":{
       "class":"layout.Label",
-      "x":324,
-      "layout_to_top_of":"label1",
+      "x":330,
+      "layout_to_top_of":"labelHour",
       "font":{
         "name":"FreeMonoBold",
-        "size":20
+        "size":14
       },
-      "text":"Thu"
+      "text":"13"
     },
     "iconCondition5":{
       "class":"layout.Icon",
-      "x":314,
+      "x":320,
       "layout_to_top_of":"iconCondition1",
       "height":60,
       "width":60,
       "image":"res/drawable/6.png"
     },
-    "label5minmax":{
+    "label5Temp":{
       "class":"layout.Label",
-      "x":314,
-      "layout_to_top_of":"label1minmax",
+      "layout_to_left_of":"label5",
+      "layout_to_top_of":"labelTemp",
       "font":{
         "name":"FreeMonoBold",
         "size":14
       },
-      "text":"15°/16°"
+      "text":"16°C"
+    },
+    "label5RealFeel":{
+      "class":"layout.Label",
+      "layout_to_left_of":"label5",
+      "layout_to_top_of":"labelRealFeel",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+      "text":"15°C"
+    },
+    "label5WindSpeed":{
+      "class":"layout.Label",
+      "layout_to_left_of":"label5",
+      "layout_to_top_of":"labelWindSpeed",
+      "font":{
+        "name":"FreeMonoBold",
+        "size":14
+      },
+      "text":"10km/h"
     },
     "ellipseFrame1":{
        "class":"layout.Ellipse",
@@ -304,7 +455,7 @@
        "y":618,
        "x1":47,
        "y1":628,
-       "fill":0,
+       "fill":255,
        "outline":0
     },
     "ellipseFrame3":{
@@ -313,7 +464,7 @@
        "y":618,
        "x1":67,
        "y1":628,
-       "fill":255,
+       "fill":0,
        "outline":0
     }
   }

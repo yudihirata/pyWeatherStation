@@ -15,6 +15,7 @@ class Icon(Resource):
 
 
     def load_layout(self, layout):
+        super(Icon, self).load_layout(layout)
         if "text" in layout:
             self.text = layout["text"]
         if "x" in layout:
@@ -107,20 +108,6 @@ class Icon(Resource):
        """
         if angle is not None:
             self.mImage = self.mImage.rotate(angle*-1, resample, expand)
-
-    def loadlayout(self, layout):
-        super(Icon, self).load_layout(layout)
-        if "image" in layout:
-            self.file = layout["image"]
-        if "width" in layout:
-            self.width = layout["width"]
-
-        if "height" in layout:
-            self.height = layout["height"]
-
-        if "angle" in layout:
-            self.angle = layout["angle"]
-            self.image = self.image.rotate(self.angle)
 
     def create_view(self):
         self.resize(self.width, self.height)

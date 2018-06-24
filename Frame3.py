@@ -5,10 +5,10 @@ from layout.Form import Form
 import pytz
 
 
-class Frame2(Form):
+class Frame3(Form):
 
     def __init__(self, accuweather):
-        Form.__init__(self, "Frame2")
+        Form.__init__(self, "Frame3")
         city = accuweather.city
         weather = accuweather.get_current()
         forecast = accuweather.get_dailyforecast(0)
@@ -29,16 +29,19 @@ class Frame2(Form):
         self.children["labelWind"].text = "{0}:{1}".format(R.strings.WIND, weather.swind)
         self.children["labelLastUpdated"].text = u"{0}:{1} ".format(R.strings.LAST_UPDATED,
                                                                     weather.get_date("%m/%d %H:%M"))
-        accuweather.createchart("forecast.png")
+        data = accuweather.twelve_hours
+        for i in range(0, 5):
+            hour = data[i]
+            self.children["label{0}".format(i + 1)].text = datetime.fromtimestamp(hour["EpochDateTime"])\
+                .strftime("%H:%M")
+            self.children["label{0}Temp".format(i + 1)].text = u"{0}{1}{2}".format(int(hour["Temperature"]["Value"]),
+                                                                                  hour["Temperature"]["Unit"],
+                                                                                  u'\N{DEGREE SIGN}')
+            self.children["label{0}RealFeel".format(i + 1)].text = u"{0}{1}{2}"\
+                .format(int(hour["RealFeelTemperature"]["Value"]),hour["RealFeelTemperature"]["Unit"],
+                        u'\N{DEGREE SIGN}')
 
-        self.children["iconChart"].file = "forecast.png"
-
-        for i in range(0, accuweather.forecasts.size):
-            forecast = accuweather.get_dailyforecast(i)
-            self.children["label{0}".format(i + 1)].text = forecast.get_date("%a")
-            temp = u"{0:.0f}\N{DEGREE SIGN}/"u"{1:.0f}\N{DEGREE SIGN}".format(forecast.min_temperature,
-                                                                              forecast.max_temperature)
-            # Forces the field to be centered within the available space.
-            self.children["label{0}minmax".format(i + 1)].text = u"{:^9}".format(temp)
-            self.children["iconCondition{0}".format(i + 1)].file = forecast.day.icon
+            self.children["label{0}WindSpeed".format(i + 1)].text = "{0}{1}".format(int(hour["Wind"]["Speed"]["Value"]),
+                                                                                     hour["Wind"]["Speed"]["Unit"])
+            self.children["iconCondition{0}".format(i + 1)].file = "res/drawable/{0}.png".format(hour["WeatherIcon"])
         self.create_view()

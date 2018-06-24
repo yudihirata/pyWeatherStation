@@ -35,8 +35,10 @@ class Form(Resource):
                 resource = "res/layout/{0}.json".format(self.name)
             else:
                 resource = "res/layout-portrait/{0}.json".format(self.name)
+
             with open(resource) as f:
-                self.mLayout = json.load(f)
+                input_data = f.read()
+            self.mLayout = json.loads(input_data.decode('utf-8'), object_pairs_hook=OrderedDict)
         return self.mLayout[self.name]
 
     @layout.setter
@@ -75,8 +77,9 @@ class Form(Resource):
             classname = layout[resource]["class"]
             obj = locate(classname)(resource)
             if "load_layout" in dir(obj):
-                obj.load_layout(layout[resource])
                 self.add(obj)
+                obj.load_layout(layout[resource])
+
 
     def create_view(self):
         for name in self.children:

@@ -11,7 +11,7 @@
     },
     "labelDescription":{
       "class":"layout.Label",
-      "x":15,
+      "layout_to_left_of":"labelDate",
       "y":35,
       "font":{
         "name":"FreeMonoBold",
@@ -20,7 +20,7 @@
     },
     "labelCity":{
       "class":"layout.Label",
-      "x":15,
+      "layout_to_left_of":"labelDate",
       "y":65,
       "font":{
         "name":"FreeMonoBold",
@@ -36,27 +36,25 @@
         "size":14
       }
     },
-     "LineTop":{
-       "class":"layout.Line",
-       "x":0,
-       "y":95,
-       "x1":640,
-       "y1":95,
-       "fill":0,
-       "width":3,
-       "dashedline":"true"
+    "iconPanel":{
+      "class":"layout.Icon",
+      "x":-10,
+      "y":90,
+      "width":400,
+      "height":260,
+      "image":"res/drawable/panel.png"
     },
     "iconCondition":{
       "class":"layout.Icon",
       "x":120,
-      "y":200,
+      "y":185,
       "height":150,
       "width":150
     },
     "labelTemperature":{
       "class":"layout.Label",
       "x":40,
-      "y":125,
+      "y":115,
       "font":{
         "name":"FreeMonoBold",
         "size":64
@@ -64,8 +62,8 @@
     },
     "labelMinTemperature":{
       "class":"layout.Label",
-      "x":230,
-      "y":125,
+      "x":220,
+      "layout_to_top_of":"labelTemperature",
       "font":{
         "name":"FreeMonoBold",
         "size":30
@@ -73,8 +71,8 @@
     },
     "labelMaxTemperature":{
       "class":"layout.Label",
-      "x":230,
-      "y":155,
+      "layout_to_left_of":"labelMinTemperature",
+      "y":145,
       "font":{
         "name":"FreeMonoBold",
         "size":30
@@ -82,17 +80,17 @@
     },
      "LineSeparatorTemp":{
        "class":"layout.Line",
-       "x":230,
-       "y":155,
+       "layout_to_left_of":"labelMinTemperature",
+       "y":145,
        "x1":300,
-       "y1":155,
+       "y1":145,
        "fill":0,
        "width":3
     },
     "iconSun":{
       "class":"layout.Icon",
       "x":10,
-      "y":330,
+      "y":340,
       "height":100,
       "width":100,
       "image":"res/drawable/1.png"
@@ -100,7 +98,7 @@
     "labelSunrise":{
       "class":"layout.Label",
       "x":110,
-      "y":350,
+      "y":370,
       "font":{
         "name":"FreeMonoBold",
         "size":20
@@ -108,8 +106,8 @@
     },
     "labelSunset":{
       "class":"layout.Label",
-      "x":110,
-      "y":370,
+      "layout_to_left_of":"labelSunrise",
+      "y":390,
       "font":{
         "name":"FreeMonoBold",
         "size":20
@@ -119,7 +117,7 @@
     "iconMoon":{
       "class":"layout.Icon",
       "x":200,
-      "y":330,
+      "layout_to_top_of":"iconSun",
       "height":100,
       "width":100,
       "image":"res/drawable/33.png"
@@ -127,7 +125,7 @@
     "labelMoonrise":{
       "class":"layout.Label",
       "x":290,
-      "y":350,
+      "layout_to_top_of":"labelSunrise",
       "font":{
         "name":"FreeMonoBold",
         "size":20
@@ -136,23 +134,13 @@
     },
     "labelMoonset":{
       "class":"layout.Label",
-      "x":290,
-      "y":370,
+      "layout_to_left_of":"labelMoonrise",
+      "layout_to_top_of":"labelSunset",
       "font":{
         "name":"FreeMonoBold",
         "size":20
       },
       "text":"assadas"
-    },
-    "LineSeparator":{
-      "class":"layout.Line",
-      "x":0,
-      "y":430,
-      "x1":640,
-      "y1":430,
-      "fill":0,
-      "width":3,
-      "dashedline":"true"
     },
     "iconDirection":{
       "class":"layout.Icon",
@@ -173,7 +161,7 @@
     },
     "labelDirection":{
       "class":"layout.Label",
-      "x":75,
+      "layout_to_left_of":"labelDegress",
       "y":520,
       "font":{
         "name":"FreeMonoBold",
@@ -192,7 +180,7 @@
     },
      "labelHumidity":{
       "class":"layout.Label",
-      "x":220,
+      "layout_to_left_of":"labelPressure",
       "y":460,
       "text":"Humidity",
       "font":{
@@ -202,7 +190,7 @@
     },
     "labelSpeed":{
       "class":"layout.Label",
-      "x":220,
+      "layout_to_left_of":"labelPressure",
       "y":480,
       "font":{
         "name":"FreeMonoBold",
@@ -211,7 +199,7 @@
     },
     "labelRain":{
       "class":"layout.Label",
-      "x":220,
+      "layout_to_left_of":"labelPressure",
       "y":500,
       "font":{
         "name":"FreeMonoBold",
@@ -220,7 +208,7 @@
     },
     "labelUV":{
       "class":"layout.Label",
-      "x":220,
+      "layout_to_left_of":"labelPressure",
       "y":520,
       "font":{
         "name":"FreeMonoBold",
@@ -229,14 +217,14 @@
     },
     "labelHoursOfSun":{
       "class":"layout.Label",
-      "x":220,
+      "layout_to_left_of":"labelPressure",
       "y":540,
       "font":{
         "name":"FreeMonoBold",
         "size":14
       }
     },
-    "EllipseFrame1":{
+    "ellipseFrame1":{
        "class":"layout.Ellipse",
        "x":17,
        "y":618,
@@ -245,29 +233,20 @@
        "fill":0,
        "outline":0
     },
-    "EllipseFrame2":{
+    "ellipseFrame2":{
        "class":"layout.Ellipse",
        "x":37,
-       "y":618,
+       "layout_to_top_of":"ellipseFrame1",
        "x1":47,
        "y1":628,
        "fill":255,
        "outline":0
     },
-    "EllipseFrame3":{
+    "ellipseFrame3":{
        "class":"layout.Ellipse",
        "x":57,
-       "y":618,
+       "layout_to_top_of":"ellipseFrame1",
        "x1":67,
-       "y1":628,
-       "fill":255,
-       "outline":0
-    },
-    "EllipseFrame4":{
-       "class":"layout.Ellipse",
-       "x":77,
-       "y":618,
-       "x1":87,
        "y1":628,
        "fill":255,
        "outline":0
