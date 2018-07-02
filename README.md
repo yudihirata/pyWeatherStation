@@ -26,6 +26,8 @@ Your weather station should meet or exceed these hardware requirements:
 <br />
 <br />
 <br />
+<br />
+<br />
 <img align="right" width="192" height="320" src="https://raw.githubusercontent.com/yudihirata/weatherstation/master/doc/portrait3.bmp">
 
 ### Prerequisites
