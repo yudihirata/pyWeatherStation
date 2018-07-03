@@ -8,13 +8,16 @@ It uses Accuweather API to fetch the weather Information.
   - Current condition
   - 5 Days of Daily Forecasts
   - 12 Hours of Hourly Forecasts
+
 ###  Images and open source fonts
   - The open source icons of [http://weathericons.io](http://weathericons.io) for weather symbols
   - The FreeMonoBold.ttf font can be retrieved everywhere on the internet as here on [gnu-freefont_freemono](http://weathericons.io)
 <br />
 <br />
 <br />
+<br />
 <img align="right" width="192" height="320" src="https://raw.githubusercontent.com/yudihirata/weatherstation/master/doc/portrait2.bmp">
+
 ### Hardware requirements
 Your weather station should meet or exceed these hardware requirements:
 - Raspberry pi
@@ -37,6 +40,7 @@ Before you download the source code, unsure your system meets the following requ
 -  [Pillow](https://pypi.org/project/Pillow/2.2.1/) (Python Imaging Library)
 -  [Matplotlib](https://matplotlib.org/)
 -  [Accuweather](https://developer.accuweather.com/) API Key(the Limited Trial is enough)
+
 ### Installation
  Pyllow
  Run the following:
