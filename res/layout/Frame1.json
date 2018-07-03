@@ -6,25 +6,25 @@
       "y":5,
       "font":{
         "name":"FreeMonoBold",
-        "size":30
+        "size":25
       }
     },
     "labelDescription":{
       "class":"layout.Label",
-      "x":15,
-      "y":40,
+      "layout_to_left_of":"labelDate",
+      "y":35,
       "font":{
         "name":"FreeMonoBold",
-        "size":30
+        "size":25
       }
     },
     "labelCity":{
       "class":"layout.Label",
-      "x":15,
-      "y":75,
+      "layout_to_left_of":"labelDate",
+      "y":65,
       "font":{
         "name":"FreeMonoBold",
-        "size":30
+        "size":25
       }
     },
     "iconSun":{
@@ -90,18 +90,9 @@
         "size":12
       }
     },
-     "LineTop":{
-       "class":"layout.Line",
-       "x":0,
-       "y":110,
-       "x1":640,
-       "y1":110,
-       "fill":0,
-       "width":3
-    },
      "labelHumidity":{
       "class":"layout.Label",
-      "x":10,
+      "x":5,
       "y":140,
       "text":"Humidity",
       "font":{
@@ -111,7 +102,7 @@
     },
      "labelPressure":{
       "class":"layout.Label",
-      "x":10,
+      "layout_to_left_of":"labelHumidity",
       "y":160,
       "text":"Pressure",
       "font":{
@@ -121,7 +112,7 @@
     },
     "labelSpeed":{
       "class":"layout.Label",
-      "x":10,
+      "layout_to_left_of":"labelHumidity",
       "y":180,
       "font":{
         "name":"FreeMonoBold",
@@ -130,7 +121,7 @@
     },
     "labelRain":{
       "class":"layout.Label",
-      "x":10,
+      "layout_to_left_of":"labelHumidity",
       "y":200,
       "font":{
         "name":"FreeMonoBold",
@@ -139,7 +130,7 @@
     },
     "labelUV":{
       "class":"layout.Label",
-      "x":10,
+      "layout_to_left_of":"labelHumidity",
       "y":220,
       "font":{
         "name":"FreeMonoBold",
@@ -148,13 +139,21 @@
     },
     "labelHoursOfSun":{
       "class":"layout.Label",
-      "x":10,
+      "layout_to_left_of":"labelHumidity",
       "y":240,
       "font":{
         "name":"FreeMonoBold",
         "size":15
       },
       "text":""
+    },
+    "iconPanel":{
+      "class":"layout.Icon",
+      "x":155,
+      "y":100,
+      "width":315,
+      "height":290,
+      "image":"res/drawable/panel.png"
     },
     "iconCondition":{
       "class":"layout.Icon",
@@ -225,15 +224,6 @@
         "size":28
       }
     },
-     "LineSeparator":{
-      "class":"layout.Line",
-      "x":380,
-      "y":0,
-      "x1":380,
-      "y1":110,
-      "fill":0,
-      "width":3
-    },
     "EllipseFrame1":{
        "class":"layout.Ellipse",
        "x":17,
@@ -257,15 +247,6 @@
        "x":57,
        "y":372,
        "x1":67,
-       "y1":382,
-       "fill":255,
-       "outline":0
-    },
-    "EllipseFrame4":{
-       "class":"layout.Ellipse",
-       "x":77,
-       "y":372,
-       "x1":87,
        "y1":382,
        "fill":255,
        "outline":0
