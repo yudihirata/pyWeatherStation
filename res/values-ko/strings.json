@@ -1,11 +1,11 @@
 {
   "tokens":{
-    "HUMIDITY":"습기",
-    "PRESSURE":"압력",
+    "HUMIDITY":"습도",
+    "PRESSURE":"기압",
     "WIND":"바람",
-    "LAST_UPDATED": "Last updated",
-    "INDEX_UV": "Index UV",
-    "HOURS_OF_SUN":"Hours of sun",
+    "LAST_UPDATED": "마지막 업데이트",
+    "INDEX_UV": "자외선 지수",
+    "HOURS_OF_SUN":"낮의 길이",
     "RAIN":"비",
     "SUN":"일",
     "MON":"월",
