@@ -1,6 +1,6 @@
 # pyWeatherStation
 
-The pyWeatherStationis an e-ink weather station written in Python. 
+The pyWeatherStation is an e-ink weather station written in Python.
 <br />
 <br />
 <img align="right" width="192" height="320" src="https://raw.githubusercontent.com/yudihirata/pyWeatherStation/master/docs/portrait1.bmp">

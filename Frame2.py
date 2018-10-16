@@ -1,6 +1,6 @@
 from datetime import datetime
 
-import R
+from R import R
 from layout.Form import Form
 import pytz
 
@@ -35,7 +35,7 @@ class Frame2(Form):
 
         for i in range(0, accuweather.forecasts.size):
             forecast = accuweather.get_dailyforecast(i)
-            self.children["label{0}".format(i + 1)].text = forecast.get_date("%a")
+            self.children["label{0}".format(i + 1)].text = R.translate(forecast.get_date("%a"))
             temp = u"{0:.0f}\N{DEGREE SIGN}/"u"{1:.0f}\N{DEGREE SIGN}".format(forecast.min_temperature,
                                                                               forecast.max_temperature)
             # Forces the field to be centered within the available space.

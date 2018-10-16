@@ -83,7 +83,7 @@
     },
      "labelLastUpdated":{
       "class":"layout.Label",
-      "x":460,
+      "x":420,
       "y":370,
       "font":{
         "name":"FreeMonoBold",
@@ -158,7 +158,7 @@
     "iconCondition":{
       "class":"layout.Icon",
       "x":180,
-      "y":200,
+      "y":160,
       "height":210,
       "width":210
     },

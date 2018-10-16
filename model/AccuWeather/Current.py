@@ -3,7 +3,7 @@ from datetime import time, datetime
 
 import pytz
 
-import R
+from R import R
 from model.AccuWeather import BaseObject
 
 

@@ -1,10 +1,11 @@
-import R
+from R import R
 from layout.Form import Form
 
 
 class Frame1(Form):
 
     def __init__(self, accuweather):
+
         Form.__init__(self, "Frame1")
         weather = accuweather.get_current()
         city = accuweather.city

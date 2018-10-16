@@ -1,59 +1,30 @@
-import json
+from singleton.Configuration import Configuration
+from singleton.Resources import Resources
 
-global values
-global strings
-global code
-global config
+class R:
+    PORTRAIT = "portrait"
+    LANDSCAPE = "landscape"
+    config = None
+    strings = None
+    __instance = None
 
-PORTRAIT = "portrait"
-LANDSCAPE = "landscape"
-class Resources:
+    @staticmethod
+    def get_instance():
+        return R.__instance
+
+    @staticmethod
+    def init():
+        R()
+
     def __init__(self):
-        resource = "res/values/strings.json"
-        with open('config.json') as f:
-            self.mConfig = json.load(f)
-        if self.mConfig["language"] != "default":
-            resource = "res/values-{0}/strings.json".format(self.mConfig["language"])
-        with open(resource) as f:
-            self.mValues= json.load(f)
-
-        for attr in self.mValues["tokens"]:
-            setattr(self, unicode(attr.upper()), self.mValues["tokens"][attr] )
-
-    @property
-    def code(self):
-        return self.mValues["strings"]
-
-    @property
-    def values(self):
-        return self.mValues["tokens"]
-
-    def translate(self, value):
-        if value in self.mValues["tokens"]:
-            return self.mValues["tokens"][value]
+        """ Virtually private constructor. """
+        if R.config is not None:
+            raise Exception("This class is a singleton!")
         else:
-            return value
+            R.config = Configuration.get_instance()
+            R.strings = Resources.get_instance()
+            R.__instance = self
 
-class Configuration:
-    def __init__(self):
-        with open('config.json') as f:
-            config = json.load(f)
-            for attr in config:
-                setattr(self, unicode(attr.upper()), config[attr])
-
-
-
-def init(language=None):
-    global values
-    global strings
-    global config
-    resource = "res/values/strings.json"
-
-
-    strings = Resources()
-    config = Configuration()
-    if config.LANGUAGE != "default":
-        resource = "res/values-{0}/strings.json".format(config["language"])
-    with open(resource) as f:
-        values= json.load(f)
-        values = values["strings"]
+    @staticmethod
+    def translate(value):
+        return R.strings.translate(value)

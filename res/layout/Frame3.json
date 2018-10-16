@@ -48,7 +48,7 @@
      "iconCondition":{
       "class":"layout.Icon",
       "x":400,
-      "y":190,
+      "y":160,
       "height":210,
       "width":210,
       "image":"res/drawable/01n.png"
@@ -432,7 +432,7 @@
     },
     "labelLastUpdated":{
       "class":"layout.Label",
-      "x":460,
+      "x":420,
       "y":372 ,
       "font":{
         "name":"FreeMonoBold",

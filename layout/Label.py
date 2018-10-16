@@ -1,7 +1,7 @@
 # coding: utf-8
 from layout.Resource import Resource
 from PIL import ImageFont
-import R
+from R import R
 
 
 class Label(Resource):

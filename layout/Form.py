@@ -4,7 +4,7 @@ from collections import OrderedDict
 from PIL import Image
 from PIL import ImageDraw
 
-import R
+from R import R
 from layout.Resource import Resource
 
 from pydoc import locate
@@ -13,7 +13,7 @@ from pydoc import locate
 class Form(Resource):
     def __init__(self, name):
         Resource.__init__(self, name)
-        R.init()  # Initialize resources
+        # R.init()  # Initialize resources
         # https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes
         # 1 (1-bit pixels, black and white, stored with one pixel per byte)
         # L (8-bit pixels, black and white)

@@ -29,7 +29,7 @@
     },
     "labelLastUpdated":{
       "class":"layout.Label",
-      "x":180,
+      "x":140,
       "y":80,
       "font":{
         "name":"FreeMonoBold",

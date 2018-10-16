@@ -1,6 +1,6 @@
 from datetime import datetime
 
-import R
+from R import R
 from layout.Form import Form
 import pytz
 

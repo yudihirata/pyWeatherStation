@@ -1,6 +1,6 @@
 import time
 
-import R
+from R import R
 
 
 class BaseObject(object):

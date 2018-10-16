@@ -5,7 +5,7 @@ from datetime import datetime
 
 import matplotlib
 
-import R
+from R import R
 from model.AccuWeather import City, Current
 from model.AccuWeather.Forecasts import Forecasts
 
