@@ -1,5 +1,5 @@
 {
-  "city":"barueri",
+  "city":"lund",
   "current":"http://api.openweathermap.org/data/2.5/weather",
   "forecastfive":"http://api.openweathermap.org/data/2.5/forecast",
   "api_key":"1497c0f0e51ef524d3be4fc373d72bd1",
@@ -9,7 +9,7 @@
   "width":640,
   "height":384,
   "accuweather":{
-    "city":"barueri",
+    "city":"lund",
     "api_key":"paste here Secret API Key from your Accuweather account",
     "unit":"metric",
     "current":"http://dataservice.accuweather.com/currentconditions/v1",
